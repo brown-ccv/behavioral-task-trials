@@ -16,10 +16,9 @@
   },
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
   "main": "app.js",
   "homepage": ".",
-  "repository": "",
+  "repository": "https://github.com/brown-ccv/",
   "dependencies": {
     "cz-conventional-changelog": "^3.2.0",
     "git-cz": "^4.7.0",

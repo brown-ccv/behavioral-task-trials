@@ -1,7 +1,8 @@
 const fs = require('fs');
 const trials = './trials';
+const _ = require('lodash')
 
-var config = { USE_PHOTODIODE: false,  AT_HOME: false, IS_ELECTRON: true}
+exports.config = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, USE_MTURK: false}
 
 
 
@@ -10,8 +11,12 @@ var config = { USE_PHOTODIODE: false,  AT_HOME: false, IS_ELECTRON: true}
 //     console.log(require(trials+'/'+file));
 //   });
 // });
-// console.log(require('./trials/experimentEnd.js')(100,'This is end',true));
+console.log(require('./trials/showMessageChoice.js')(100,undefined));
 module.exports = { 
+    init: function(_config){
+        return config = _.merge(_config, config)
+    },
     countdown: require('./trials/countdown.js'),
-    experimentEnd: require('./trials/experimentEnd.js')(100,'This is end',true)
+    showMessage: require('./trials/showMessage.js'),
+    showMessageChoice: require('./trials/showMessageChoice.js')
 };
