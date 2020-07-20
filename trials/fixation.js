@@ -1,8 +1,6 @@
-import { eventCodes } from '../config/main'
-import { jitter50 } from '../lib/utils'
-import { pdSpotEncode, photodiodeGhostBox } from '../lib/markup/photodiode'
-import { fixationHTML } from '../lib/markup/fixation'
-import { jsPsych } from 'jspsych-react'
+const { jitter50 } = require('../lib/utils')
+const { pdSpotEncode, photodiodeGhostBox } = require('../lib/markup/photodiode')
+const { fixationHTML } = require('../lib/markup/fixation')
 
 const fixation = (duration) => {
   let stimulus = fixationHTML + photodiodeGhostBox()
