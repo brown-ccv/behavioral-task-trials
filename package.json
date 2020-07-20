@@ -7,16 +7,26 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brown-ccv/behavioral-task-trials.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/brown-ccv/behavioral-task-trials/issues"
   },
-  "homepage": "https://github.com/brown-ccv/behavioral-task-trials#readme"
+  "homepage": "https://github.com/brown-ccv/behavioral-task-trials#readme",
+  "dependencies": {
+    "cz-conventional-changelog": "^3.2.0",
+    "git-cz": "^4.7.0"
+  }
 }
