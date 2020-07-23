@@ -2,7 +2,7 @@ const fs = require('fs');
 const trials = './trials';
 const _ = require('lodash')
 
-exports.config = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, USE_MTURK: false}
+const config = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, USE_MTURK: false}
 
 
 
@@ -15,7 +15,7 @@ exports.config = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, US
 // console.log(require('./trials/countdown.js')('text',20))
 module.exports = { 
     init: function(_config){
-        config = _.merge(_config, config)
+        return _.extend(config,_config)
     },
     countdown: require('./trials/countdown.js'),
     showMessage: require('./trials/showMessage.js'),

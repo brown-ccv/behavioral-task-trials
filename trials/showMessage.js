@@ -1,13 +1,12 @@
-const { config } = require('../app')
 const { photodiodeGhostBox, pdSpotEncode } = require('../lib/markup/photodiode')
 const { baseStimulus } = require('../lib/markup/stimuli')
 
 
 const message = "This experiment has ended.";
-const buttons = ["Continue"];
+const buttons = [];
 
 module.exports = 
-  function(_duration, _message = message, _responseEndsTrial = false, _taskCode = null, _buttons = buttons, _numBlinks = 1) {
+  function(_duration, config, _message = message, _responseEndsTrial = false, _taskCode = null, _buttons = buttons, _numBlinks = 1) {
   let stimulus = baseStimulus(`<h1>${_message}</h1>`, true)
   if(config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 

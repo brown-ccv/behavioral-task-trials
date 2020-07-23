@@ -1,9 +1,8 @@
-const { config } = require('../app')
 const { photodiodeGhostBox, pdSpotEncode } = require('../lib/markup/photodiode')
 
 
 
-module.exports = function(_duration, _responseEndsTrial = false, _taskCode = null, _numBlinks = 1) {
+module.exports = function(_duration, config, _responseEndsTrial = false, _taskCode = null, _numBlinks = 1) {
   let earnings = '$' + parseFloat(Math.random()).toFixed(2)
   const bclass = (earnings >= 0) ? 'success' : 'danger'
   let stimulus = `<div class='beads_container'>
