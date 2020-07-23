@@ -1,6 +1,6 @@
 {
   "name": "behavioral-task-trials",
-  "version": "1.1.5",
+  "version": "1.0.0",
   "description": "all-in-one starter app with behavioral task trials",
   "main": "app.js",
   "directories": {
