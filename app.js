@@ -11,12 +11,13 @@ exports.config = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, US
 //     console.log(require(trials+'/'+file));
 //   });
 // });
-console.log(require('./trials/showMessageChoice.js')(100,undefined));
+// console.log(require('./trials/showMessageChoice.js')(100,undefined));
+// console.log(require('./trials/countdown.js')('text',20))
 module.exports = { 
     init: function(_config){
-        return config = _.merge(_config, config)
+        config = _.merge(_config, config)
     },
     countdown: require('./trials/countdown.js'),
     showMessage: require('./trials/showMessage.js'),
-    showMessageChoice: require('./trials/showMessageChoice.js')
+    showEarnings: require('./trials/showEarnings.js')
 };
