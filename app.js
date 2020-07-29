@@ -11,7 +11,9 @@ module.exports = {
     },
     countdown: require('./trials/countdown.js'),
     showMessage: require('./trials/showMessage.js'),
-    showEarnings: require('./trials/showEarnings.js')
+    showEarnings: require('./trials/showEarnings.js'),
+    fixation: require('./trials/fixation.js'),
+    userId: require('./trials/userId.js')
 };
 
 
