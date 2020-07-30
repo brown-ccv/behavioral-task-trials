@@ -1,5 +1,16 @@
 const { jsPsych } = require('jspsych-react')
 const { baseStimulus } = require('../lib/markup/stimuli')
+
+/**
+ * Builds a trial with set Id message and user Id input.
+ * @constructor
+ * @param {number} duration - The trial duration in milliseconds.
+ * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags, by default only IS_ELECTRON is set to be true.
+ * @param {string} setIdMessage - Onscreen text for setting user id or for the input box to enter patient id.
+ * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
+ * @param {boolean} REACT_APP_PATIENT_ID - The patient id to show when requesting a patient ID, if not set default is empty.
+ */
+
 const setIdMessageDefault = (config.USE_MTURK)?"Setting up user ID.":"Please enter patient ID.";
 
 module.exports =  function(duration, config, setIdMessage = setIdMessageDefault, responseEndsTrial = false, REACT_APP_PATIENT_ID = ""){
