@@ -2,18 +2,18 @@ const fs = require('fs');
 const trials = './trials';
 const _ = require('lodash')
 
-const config = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, USE_MTURK: false}
+const defaultconfig = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, USE_MTURK: false}
 
 
 module.exports = { 
     init: function(_config){
-        return _.extend(config,_config)
+        return _.extend(defaultconfig,_config)
     },
     countdown: require('./trials/countdown.js'),
     showMessage: require('./trials/showMessage.js'),
     showEarnings: require('./trials/showEarnings.js'),
     fixation: require('./trials/fixation.js'),
-    userId: require('./trials/userId.js')
+    // userId: require('./trials/userId.js')
 };
 
 
