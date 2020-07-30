@@ -27,6 +27,8 @@
   "homepage": "https://github.com/brown-ccv/behavioral-task-trials#readme",
   "dependencies": {
     "cz-conventional-changelog": "^3.2.0",
-    "git-cz": "^4.7.0"
+    "git-cz": "^4.7.0",
+    "jquery": "^3.5.1",
+    "jspsych-react": "^0.3.0"
   }
 }
