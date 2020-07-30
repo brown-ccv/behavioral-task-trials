@@ -11,9 +11,8 @@ const { baseStimulus } = require('../lib/markup/stimuli')
  * @param {boolean} REACT_APP_PATIENT_ID - The patient id to show when requesting a patient ID, if not set default is empty.
  */
 
-const setIdMessageDefault = (config.USE_MTURK)?"Setting up user ID.":"Please enter patient ID.";
 
-module.exports =  function(duration, config, setIdMessage = setIdMessageDefault, responseEndsTrial = false, REACT_APP_PATIENT_ID = ""){
+module.exports =  function(duration, config, setIdMessage = "", responseEndsTrial = false, REACT_APP_PATIENT_ID = ""){
   if (config.USE_MTURK) {
     return {
       type: 'html_keyboard_response',

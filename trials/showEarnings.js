@@ -24,8 +24,8 @@ module.exports = function(duration, config, earnings = Math.random(), responseEn
       stimulus: stimulus,
       response_ends_trial: responseEndsTrial,
       trial_duration: duration,
-      on_load: () => (config.USE_PHOTODIODE!=null)?pdSpotEncode(taskCode, numBlinks):null,
-      on_finish: (data) => (config.USE_PHOTODIODE!=null)?data.code = taskCode:null
+      on_load: () => (taskCode!=null)?pdSpotEncode(taskCode, numBlinks, config):null,
+      on_finish: (data) => (taskCode!=null)?data.code = taskCode:null
     }
 }
 
