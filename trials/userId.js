@@ -3,7 +3,7 @@ const { baseStimulus } = require('../lib/markup/stimuli')
 
 /**
  * Builds a trial with set Id message and user Id input.
- * @constructor
+ * @module
  * @param {number} duration - The trial duration in milliseconds.
  * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags, by default only IS_ELECTRON is set to be true.
  * @param {string} setIdMessage - Onscreen text for setting user id or for the input box to enter patient id.
