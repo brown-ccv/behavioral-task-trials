@@ -8,27 +8,14 @@ const defaultconfig = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: tru
 module.exports = { 
     init: function(_config){
         return _.extend(defaultconfig,_config)
-    },
-    countdown: require('./trials/countdown.js'),
-    showMessage: require('./trials/showMessage.js'),
-    showEarnings: require('./trials/showEarnings.js'),
-    fixation: require('./trials/fixation.js'),
-    // userId: require('./trials/userId.js')
+    }
 };
 
-
-
-
-
-
-
-
-
-
-// fs.readdir(trials, (err, files) => {
-//   files.forEach(file => {
-//     console.log(require(trials+'/'+file));
-//   });
-// });
-// console.log(require('./trials/showMessageChoice.js')(100,undefined));
-// console.log(require('./trials/countdown.js')('text',20))
+fs.readdir(trials, (err, files) => {
+  files.forEach(file => {
+    let filename = file.split('.')[0]
+    module.exports = { 
+        filename: require(trials+'/'+file)
+    };
+  });
+});
