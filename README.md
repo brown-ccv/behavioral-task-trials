@@ -1,6 +1,5 @@
 # Behavioral Task Trials
 All-in-one starter app with behavioral task trials
-
 ## Modules
 
 <dl>
@@ -29,9 +28,9 @@ Builds a countdown transition with the given text and number of seconds.
 
 | Param | Type | Description |
 | --- | --- | --- |
+| duration | <code>number</code> | The trial duration. |
 | text | <code>string</code> | Optional text for the countdown. |
 | time | <code>number</code> | The number of seconds for the countdown. |
-| duration | <code>number</code> | The trial duration . |
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration. |
 
 <a name="module_fixation"></a>
@@ -47,7 +46,7 @@ Builds a trial with a fixation dot and optional photodiode box.
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
 | numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
-| buttons | <code>Array</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. If not set, by default is empty array. |
+| buttons | <code>any</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. |
 
 <a name="module_showEarnings"></a>
 
@@ -78,7 +77,7 @@ Builds a trial with a onscreen message, optional buttons and optional phtodiode 
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
 | numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
-| buttons | <code>Array</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. If not set, by default is empty array. |
+| buttons | <code>any</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. |
 
 <a name="module_userId"></a>
 
@@ -88,6 +87,7 @@ Builds a trial with set Id message and user Id input.
 
 | Param | Type | Description |
 | --- | --- | --- |
+| jsPsych | <code>object</code> | instance of the jspsych passed as an object. |
 | duration | <code>number</code> | The trial duration in milliseconds. |
 | config | <code>object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags, by default only IS_ELECTRON is set to be true. |
 | setIdMessage | <code>string</code> | Onscreen text for setting user id or for the input box to enter patient id. |
