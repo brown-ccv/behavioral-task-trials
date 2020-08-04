@@ -2,7 +2,7 @@ const { pdSpotEncode, photodiodeGhostBox } = require('../lib/markup/photodiode')
 
 /**
  * Builds a trial with a fixation dot and optional photodiode box.
- * @constructor
+ * @module
  * @param {number} duration - The trial duration in milliseconds.
  * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
  * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.

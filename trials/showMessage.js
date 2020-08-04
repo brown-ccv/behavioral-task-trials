@@ -3,7 +3,7 @@ const { baseStimulus } = require('../lib/markup/stimuli')
 
 /**
  * Builds a trial with a onscreen message, optional buttons and optional phtodiode box
- * @constructor
+ * @module
  * @param {number} duration - The trial duration in milliseconds.
  * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
  * @param {string} message - Onscreen message to be shown in the trial, if not set default text is empty.
