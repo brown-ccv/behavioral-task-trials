@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-        run: yarn install
+        run: npm install
       - name: Build Assets
         run: yarn build
       - name: Test
@@ -24,4 +24,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: yarn release
+        run: npm run release

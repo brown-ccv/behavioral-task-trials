@@ -1,5 +1,5 @@
 {
-  "name": "behavioral-task-trials",
+  "name": "@brown-ccv/behavioral-task-trials",
   "version": "1.0.0",
   "description": "all-in-one starter app with behavioral task trials",
   "main": "app.js",
