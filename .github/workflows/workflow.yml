@@ -4,8 +4,8 @@ on:
     branches:
       - master
 jobs:
-  build:
-    name: Install and build
+  job0:
+    name: Update README, Release
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
@@ -20,10 +20,6 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
-  readme:
-    name: Update Readme
-    runs-on: ubuntu-18.04
-    steps:
       - name: Update Readme
         run: yarn updatereadme
       - name: Commit files
@@ -35,10 +31,6 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GH_TOKEN }}
-  release:
-    name: Release
-    runs-on: ubuntu-18.04
-    steps:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
