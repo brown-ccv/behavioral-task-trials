@@ -9,7 +9,7 @@
   "scripts": {
     "build": "node app.js",
     "release": "semantic-release",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config ./jest.config.json",
     "commit": "git-cz"
   },
   "repository": {
@@ -33,5 +33,9 @@
     "jquery": "^3.5.1",
     "jspsych-react": "^0.3.0",
     "semantic-release": "^17.1.1"
+  },
+  "devDependencies": {
+    "jest": "^26.2.2",
+    "jsdoc-to-markdown": "^6.0.1"
   }
 }

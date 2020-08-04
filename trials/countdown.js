@@ -2,10 +2,10 @@ const _ = require('lodash')
 
 /**
  * Builds a countdown transition with the given text and number of seconds.
- * @constructor
+ * @module
+ * @param {number} duration - The trial duration.
  * @param {string} text - Optional text for the countdown.
  * @param {number} time - The number of seconds for the countdown.
- * @param {number} duration - The trial duration .
  * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration.
  */
 
