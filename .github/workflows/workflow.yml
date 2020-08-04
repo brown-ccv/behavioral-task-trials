@@ -1,4 +1,4 @@
-name: JS Doc README and gh-pages
+name: JS Doc README, gh-pages and Release
 on:
   push:
     branches:
@@ -24,7 +24,7 @@ jobs:
         run: yarn updatereadme
       - name: Commit files
         run: |
-          git add .
+          git add README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update Readme" -a
