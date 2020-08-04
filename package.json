@@ -9,7 +9,8 @@
   "scripts": {
     "build": "node app.js",
     "release": "semantic-release",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config ./jest.config.js",
+    "updatereadme": "node jsdoc2md.js",
     "commit": "git-cz"
   },
   "repository": {
@@ -35,6 +36,7 @@
     "semantic-release": "^17.1.1"
   },
   "devDependencies": {
+    "jest": "^26.2.2",
     "jsdoc-to-markdown": "^6.0.1"
   }
 }

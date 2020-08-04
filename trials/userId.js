@@ -38,4 +38,3 @@ module.exports =  function(jsPsych, duration, config, setIdMessage = "", respons
     }
   }
 }
-
