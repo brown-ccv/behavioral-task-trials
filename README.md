@@ -58,7 +58,7 @@ Builds a trial which shows formatted dollar earnings(number) with optional photo
 | --- | --- | --- |
 | duration | <code>number</code> | The trial duration in milliseconds. |
 | config | <code>object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
-| earnings | <code>number</code> | Float earnings to display on screen. If not set,  default is random float. |
+| earnings | <code>number</code> | The float earnings to display on screen. If not set,  default is random float. |
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | taskCode | <code>number</code> | The task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
 | numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
