@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+
+      
 jobs:
   job0:
     name: Update README, Release
@@ -10,26 +12,53 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 12
+
       - name: Install dependencies
         run: yarn install
+
       - name: Build Assets
         run: yarn build
+
       - name: Test
         run: yarn test
+
       - name: Update Readme
         run: |
           yarn updatereadme
+
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
           message: Update README.md
           github_token: ${{ secrets.GH_TOKEN }}
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
         run: yarn release
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          output_dir: ./out
+          template: minami
+          front_page: README.md
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./out
