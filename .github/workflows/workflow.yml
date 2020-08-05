@@ -26,7 +26,7 @@ jobs:
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
-          message: 'Update README.md'
+          message: Update README.md
           github_token: ${{ secrets.GH_TOKEN }}
       - name: Release
         env:
