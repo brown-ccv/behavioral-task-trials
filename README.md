@@ -28,7 +28,7 @@ Builds a countdown transition with the given text and number of seconds.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| duration | <code>number</code> | The trial duration . |
+| duration | <code>number</code> | The trial duration. |
 | text | <code>string</code> | Optional text for the countdown. |
 | time | <code>number</code> | The number of seconds for the countdown. |
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration. |
