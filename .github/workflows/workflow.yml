@@ -4,7 +4,7 @@ on:
     branches:
       - master
 
-      
+
 jobs:
   job0:
     name: Update README, Release
@@ -52,7 +52,7 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: ./src
+          source_dir: ./trials
           output_dir: ./out
           template: minami
           front_page: README.md
