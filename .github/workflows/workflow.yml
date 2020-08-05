@@ -20,22 +20,13 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-      with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - name: Install dependencies
-      run: yarn install
-    - name: Update Readme
-      run: |
-        yarn updatereadme
-    - name: Commit & Push changes
-      uses: actions-js/push@master
-      with:
-        github_token: ${{ secrets.GH_TOKEN }}
+      - name: Update Readme
+        run: |
+          yarn updatereadme
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
       # - name: Update Readme
       #   run: yarn updatereadme
       # - name: Commit files
@@ -48,8 +39,8 @@ jobs:
       #   uses: ad-m/github-push-action@master
       #   with:
       #     github_token: ${{ secrets.GH_TOKEN }}
-      # - name: Release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.GH_TOKEN }}
-      #   run: yarn release
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: yarn release
