@@ -26,19 +26,8 @@ jobs:
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
+          message: 'Update README.md'
           github_token: ${{ secrets.GH_TOKEN }}
-      # - name: Update Readme
-      #   run: yarn updatereadme
-      # - name: Commit files
-      #   run: |
-      #     git add README.md
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git commit -m "Update Readme" -a
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GH_TOKEN }}
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
