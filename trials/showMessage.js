@@ -5,7 +5,7 @@ const { baseStimulus } = require('../lib/markup/stimuli')
  * Builds a trial with a onscreen message, optional buttons and optional phtodiode box
  * @module
  * @param {number} duration - The trial duration in milliseconds.
- * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
+ * @param {object} config - The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags.
  * @param {string} message - Onscreen message to be shown in the trial, if not set default text is empty.
  * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
  * @param {number} taskCode - Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true.

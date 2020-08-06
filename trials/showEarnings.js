@@ -4,7 +4,7 @@ const { photodiodeGhostBox, pdSpotEncode } = require('../lib/markup/photodiode')
  * Builds a trial which shows formatted dollar earnings(number) with optional photodiode box.
  * @module
  * @param {number} duration - The trial duration in milliseconds.
- * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
+ * @param {object} config - The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags.
  * @param {number} earnings - The float earnings to display on screen. If not set,  default is random float.
  * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
  * @param {number} taskCode - The task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true.
