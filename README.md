@@ -42,7 +42,7 @@ Builds a trial with a fixation dot and optional photodiode box.
 | Param | Type | Description |
 | --- | --- | --- |
 | duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config | <code>object</code> | The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags. |
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
 | numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
@@ -57,7 +57,7 @@ Builds a trial which shows formatted dollar earnings(number) with optional photo
 | Param | Type | Description |
 | --- | --- | --- |
 | duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config | <code>object</code> | The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags. |
 | earnings | <code>number</code> | The float earnings to display on screen. If not set,  default is random float. |
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | taskCode | <code>number</code> | The task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
@@ -72,7 +72,7 @@ Builds a trial with a onscreen message, optional buttons and optional phtodiode 
 | Param | Type | Description |
 | --- | --- | --- |
 | duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config | <code>object</code> | The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags. |
 | message | <code>string</code> | Onscreen message to be shown in the trial, if not set default text is empty. |
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
@@ -87,10 +87,10 @@ Builds a trial with set Id message and user Id input.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| jsPsych | <code>object</code> | instance of the jspsych passed as an object. |
+| jsPsych | <code>object</code> | The instance of the jspsych passed as an object. |
 | duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags, by default only IS_ELECTRON is set to be true. |
+| config | <code>object</code> | The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags, by default only IS_ELECTRON is set to be true. |
 | setIdMessage | <code>string</code> | Onscreen text for setting user id or for the input box to enter patient id. |
 | responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
-| REACT_APP_PATIENT_ID | <code>boolean</code> | The patient id to show when requesting a patient ID, if not set default is empty. |
+| defaultPatientId | <code>string</code> | The patient id to show when requesting a patient ID, if not set default is empty. |
 
