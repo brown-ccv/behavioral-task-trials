@@ -9,8 +9,8 @@ const { jitter50 } = require('../lib/utils')
  * @param {number} duration - The trial duration in milliseconds.
  * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
  * @param {string} image - The path of the image file to be displayed.
- * @param {string} imageHeight - Set the height of the image in pixels. If left null (no value specified), then the image will display at its natural height.
- * @param {string} imageWidth - Set the width of the image in pixels. If left null (no value specified), then the image will display at its natural width.
+ * @param {number} imageHeight - Set the height of the image in pixels. If left null (no value specified), then the image will display at its natural height.
+ * @param {number} imageWidth - Set the width of the image in pixels. If left null (no value specified), then the image will display at its natural width.
  * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
  * @param {number} taskCode - Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true.
  * @param {number} numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1.

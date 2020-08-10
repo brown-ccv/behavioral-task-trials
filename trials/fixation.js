@@ -1,4 +1,5 @@
 const { pdSpotEncode, photodiodeGhostBox } = require('../lib/markup/photodiode')
+const { jitter50 } = require('../lib/utils')
 
 /**
  * Builds a trial with a fixation dot and optional photodiode box.
@@ -13,10 +14,6 @@ const { pdSpotEncode, photodiodeGhostBox } = require('../lib/markup/photodiode')
  */
 
 module.exports = function(responseType, duration, config, responseEndsTrial = false, taskCode = null, numBlinks = 1, buttons) {
-  const jitter = (base, offset) => (
-    base + Math.floor(Math.random() * Math.floor(offset))
-  )
-  const jitter50 = (base) => jitter(base, 50)
   
   let stimulus = '<div class="beads_container"><div id="fixation-dot"> </div></div>' 
   if(config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
