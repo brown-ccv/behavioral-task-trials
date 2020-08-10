@@ -3,6 +3,7 @@ const { pdSpotEncode, photodiodeGhostBox } = require('../lib/markup/photodiode')
 /**
  * Builds a trial with a fixation dot and optional photodiode box.
  * @module
+ * @param {string} responseType - This tells jsPsych which plugin file to use to run the trial. 
  * @param {number} duration - The trial duration in milliseconds.
  * @param {object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
  * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
@@ -11,7 +12,7 @@ const { pdSpotEncode, photodiodeGhostBox } = require('../lib/markup/photodiode')
  * @param {any} buttons - This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed.
  */
 
-module.exports = function(duration, config, responseEndsTrial = false, taskCode = null, numBlinks = 1, buttons) {
+module.exports = function(responseType, duration, config, responseEndsTrial = false, taskCode = null, numBlinks = 1, buttons) {
   const jitter = (base, offset) => (
     base + Math.floor(Math.random() * Math.floor(offset))
   )
@@ -21,7 +22,7 @@ module.exports = function(duration, config, responseEndsTrial = false, taskCode 
   if(config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 
   return {
-    type: 'html_keyboard_response',
+    type: responseType,
     choices: buttons,
     stimulus: stimulus,
     response_ends_trial: responseEndsTrial,
