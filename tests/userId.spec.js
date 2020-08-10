@@ -6,7 +6,7 @@ describe('userId trial', () => {
     it('check for set ID message', () => {
         const config = init({USE_MTURK: true});
         const setIdMessage = "Setting User ID"
-        const result = userId(jsPsych, 100, config, setIdMessage, false);
+        const result = userId(jsPsych, 'html_keyboard_response', 100, config, setIdMessage, false);
         expect(result.stimulus).toContain(setIdMessage);
     });
   });
