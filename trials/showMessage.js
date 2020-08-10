@@ -4,6 +4,7 @@ const { baseStimulus } = require('../lib/markup/stimuli')
 /**
  * Builds a trial with a onscreen message, optional buttons and optional phtodiode box
  * @module
+ * @param {string} responseType - This tells jsPsych which plugin file to use to run the trial. 
  * @param {number} duration - The trial duration in milliseconds.
  * @param {object} config - The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags.
  * @param {string} message - Onscreen message to be shown in the trial, if not set default text is empty.
@@ -15,12 +16,12 @@ const { baseStimulus } = require('../lib/markup/stimuli')
 
 
 module.exports = 
-  function(duration, config, message = "", responseEndsTrial = false, taskCode = null, numBlinks = 1, buttons) {
+  function(responseType, duration, config, message = "", responseEndsTrial = false, taskCode = null, numBlinks = 1, buttons) {
   let stimulus = baseStimulus(`<h1>${message}</h1>`, true)
   if(config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 
   return {
-    type: 'html_keyboard_response',
+    type: responseType,
     stimulus: stimulus,
     trial_duration: duration,
     response_ends_trial: responseEndsTrial,
