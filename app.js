@@ -6,16 +6,12 @@ const defaultconfig = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: tru
 
 
 module.exports = { 
-    init: function(_config){
-        return _.extend(defaultconfig,_config)
-    }
+  init: function(_config){
+      return _.extend(defaultconfig,_config)
+  },
+  countdown: require('./trials/countdown.js'),
+  showMessage: require('./trials/showMessage.js'),
+  fixation: require('./trials/fixation.js'),
+  userId: require('./trials/userId.js'),
+  showImage: require('./trials/showImage.js')
 };
-
-fs.readdir(trials, (err, files) => {
-  files.forEach(file => {
-    let filename = file.split('.')[0]
-    module.exports = { 
-        filename: require(trials+'/'+file)
-    };
-  });
-});
