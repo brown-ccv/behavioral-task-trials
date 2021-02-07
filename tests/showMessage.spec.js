@@ -6,7 +6,7 @@ describe('showMessage trial', () => {
     it('showMessage without photodiode box', () => {
         const config = init({USE_PHOTODIODE: false});
         const message = 'Experiment Start'
-        const result = showMessage('html_keyboard_response',100, config, message, false);
+        const result = showMessage('html_keyboard_response',100, config, message, false, false);
         expect(result.stimulus).toContain(message);
         expect(result.stimulus).not.toContain('photodiode-spot');
         expect(result.on_load()).toEqual(null);
@@ -18,7 +18,7 @@ describe('showMessage trial', () => {
         const config = init({USE_PHOTODIODE: true});
         const message = 'Experiment Start'
         let data = { code: null }
-        const result = showMessage('html_keyboard_response',100, config, message, false,10,10);
+        const result = showMessage('html_keyboard_response',100, config, message, false, false,10,10);
         expect(result.stimulus).toContain(message);
         expect(result.stimulus).toContain('photodiode-spot');
         expect(result.on_load()).not.toEqual(null);
@@ -27,14 +27,22 @@ describe('showMessage trial', () => {
 
     it('showMessage with jsPsych.NO_KEYS', () => {
         const config = init({USE_PHOTODIODE: false});
-        const result = showMessage('html_button_response',100, config, false, undefined, undefined, undefined, jsPsych.NO_KEYS);
+        const result = showMessage('html_button_response',100, config, '', false, undefined, undefined, undefined, jsPsych.NO_KEYS);
         expect(result.choices).toEqual(undefined);
     });
 
     it('showMessage with choices', () => {
         const config = init({USE_PHOTODIODE: false});
         const choices = ['p','q']
-        const result = showMessage('html_button_response',100, config, false, undefined, undefined, undefined, choices);
+        const result = showMessage('html_button_response',100, config, '', false, undefined, undefined, undefined, choices);
         expect(result.choices).toEqual(choices);
+    });
+
+    it('showMessage with on start message', () => {
+        const config = init({USE_PHOTODIODE: false});
+        const message = 'Experiment Start'
+        let trial = { stimulus: null }
+        const result = showMessage('html_button_response',100, config, message, true, false,10,10);
+        expect(result.on_start(trial)).not.toEqual(null);
     });
   });
