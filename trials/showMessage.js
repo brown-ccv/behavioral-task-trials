@@ -23,12 +23,12 @@ module.exports =
 
   return {
     type: responseType,
-    stimulus: (!onstart)?stimulus:null,
+    stimulus: (!onstart)?stimulus:'',
     trial_duration: duration,
     response_ends_trial: responseEndsTrial,
     choices: buttons,
     on_start: (trial) => {
-      trial.stimulus = (onstart)?stimulus:null;
+      trial.stimulus = (onstart)?stimulus:'';
     },
     on_load: () => (taskCode!=null)?pdSpotEncode(taskCode, numBlinks, config):null,
     on_finish: (data) => (taskCode!=null)?data.code = taskCode:null
