@@ -8,6 +8,7 @@ const { baseStimulus } = require('../lib/markup/stimuli')
  * @param {number} duration - The trial duration in milliseconds.
  * @param {object} config - The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags.
  * @param {string} message - Onscreen message to be shown in the trial, if not set default text is empty.
+ * @param {boolean} onstart - True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.
  * @param {boolean} responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
  * @param {number} taskCode - Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true.
  * @param {number} numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1.
@@ -22,10 +23,13 @@ module.exports =
 
   return {
     type: responseType,
-    stimulus: stimulus,
+    stimulus: (!onstart)?stimulus:null,
     trial_duration: duration,
     response_ends_trial: responseEndsTrial,
     choices: buttons,
+    on_start: (trial) => {
+      trial.stimulus = (onstart)?stimulus:null;
+    },
     on_load: () => (taskCode!=null)?pdSpotEncode(taskCode, numBlinks, config):null,
     on_finish: (data) => (taskCode!=null)?data.code = taskCode:null
   }
