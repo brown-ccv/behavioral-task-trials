@@ -18,7 +18,7 @@ const { baseStimulus } = require('../lib/markup/stimuli')
 
 module.exports = 
   function(responseType, duration, config, message = "", onstart= false, responseEndsTrial = false, taskCode = null, numBlinks = 1, buttons) {
-  let stimulus = baseStimulus(`${message}`, true)
+  let stimulus = (onstart)?baseStimulus(message):baseStimulus(message, true)
   if(config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 
   return {
