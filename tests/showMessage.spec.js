@@ -37,4 +37,13 @@ describe('showMessage trial', () => {
         const result = showMessage('html_button_response',100, config, false, undefined, undefined, undefined, choices);
         expect(result.choices).toEqual(choices);
     });
+
+    it('showMessage with on start message', () => {
+        const config = init({USE_PHOTODIODE: false});
+        const message = 'Experiment Start'
+        let trial = { stimulus: null }
+        console.log(showMessage('html_button_response',undefined, config,'<h1>Hello</h1>', false, true, undefined, undefined, ['Continue']))
+        const result = showMessage('html_button_response',100, config, message, true, false,10,10);
+        expect(result.on_start(trial)).not.toEqual('');
+    });
   });

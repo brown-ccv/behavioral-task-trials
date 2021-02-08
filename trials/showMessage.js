@@ -26,6 +26,9 @@ module.exports =
     trial_duration: duration,
     response_ends_trial: responseEndsTrial,
     choices: buttons,
+    on_start: (trial) => {
+      (onstart)?trial.stimulus = stimulus:'';
+    },
     on_load: () => (taskCode!=null)?pdSpotEncode(taskCode, numBlinks, config):null,
     on_finish: (data) => (taskCode!=null)?data.code = taskCode:null
   }
