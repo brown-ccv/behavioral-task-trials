@@ -17,6 +17,12 @@
     "type": "git",
     "url": "git+https://github.com/brown-ccv/behavioral-task-trials.git"
   },
+  "release": {
+    "branches": [
+      "main",
+      "next"
+    ]
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
