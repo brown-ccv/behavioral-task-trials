@@ -36,7 +36,7 @@ module.exports = function (config, options) {
     taskCode,
     numBlinks,
     buttons,
-  } = { defaults, ...options };
+  } = { ...defaults, ...options };
 
   let stimulus =
     '<div class="beads_container"><div id="fixation-dot"> </div></div>';

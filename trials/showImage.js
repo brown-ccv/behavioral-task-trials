@@ -41,7 +41,7 @@ module.exports = function (config, options) {
     responseEndsTrial,
     taskCode,
     numBlinks,
-  } = { defaults, ...options };
+  } = { ...defaults, ...options };
 
   return {
     type: responseType,

@@ -42,7 +42,7 @@ module.exports = function (config, options) {
     taskCode,
     numBlinks,
     buttons,
-  } = { defaults, ...options };
+  } = { ...defaults, ...options };
 
   let stimulus = onstart ? baseStimulus(message) : baseStimulus(message, true);
   if (config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
