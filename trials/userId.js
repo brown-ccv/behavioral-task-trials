@@ -31,7 +31,7 @@ module.exports = function (jsPsych, config, options) {
     setIdMessage,
     responseEndsTrial,
     defaultPatientId,
-  } = { defaults, ...options };
+  } = { ...defaults, ...options };
 
   if (config.USE_MTURK) {
     return {

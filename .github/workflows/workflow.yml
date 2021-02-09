@@ -34,8 +34,9 @@ jobs:
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
-          message: Update Documentation.md
+          message: 'Update Documentation.md'
           github_token: ${{ secrets.GH_TOKEN }}
+          branch: 'main'
 
       - name: Release
         env:
