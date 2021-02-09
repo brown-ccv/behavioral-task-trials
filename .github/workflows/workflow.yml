@@ -2,7 +2,7 @@ name: JS Doc README, gh-pages and Release
 on:
   push:
     branches:
-      - master
+      - main
 
 
 jobs:
