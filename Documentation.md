@@ -28,10 +28,11 @@ Builds a countdown transition with the given text and number of seconds.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| duration | <code>number</code> | The trial duration. |
-| text | <code>string</code> | Optional text for the countdown. |
-| time | <code>number</code> | The number of seconds for the countdown. |
-| responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration. |
+| options | <code>Object</code> |  |
+| options.duration | <code>number</code> | The trial duration. |
+| options.text | <code>string</code> | Optional text for the countdown. (default: "") |
+| options.time | <code>number</code> | The number of seconds for the countdown. (default: 10s) |
+| options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response, false if the trial waits for the duration. (default: false) |
 
 <a name="module_fixation"></a>
 
@@ -41,13 +42,18 @@ Builds a trial with a fixation dot and optional photodiode box.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
-| duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags. |
-| responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
-| taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
-| numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
-| buttons | <code>any</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
+| config.USE_EEG | <code>boolean</code> | USE_EEG flag |
+| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
+| options | <code>Object</code> |  |
+| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
+| options.duration | <code>number</code> | The trial duration in milliseconds. |
+| options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
+| options.taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
+| options.numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
+| options.buttons | <code>any</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. |
 
 <a name="module_showImage"></a>
 
@@ -57,15 +63,20 @@ Builds a trial with a onscreen message, optional buttons and optional phtodiode 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
-| duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
-| image | <code>string</code> | The path of the image file to be displayed. |
-| imageHeight | <code>number</code> | Set the height of the image in pixels. If left null (no value specified), then the image will display at its natural height. |
-| imageWidth | <code>number</code> | Set the width of the image in pixels. If left null (no value specified), then the image will display at its natural width. |
-| responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
-| taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
-| numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
+| config.USE_EEG | <code>boolean</code> | USE_EEG flag |
+| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
+| options | <code>Object</code> |  |
+| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
+| options.duration | <code>number</code> | The trial duration in milliseconds. |
+| options.image | <code>string</code> | The path of the image file to be displayed. |
+| options.imageHeight | <code>number</code> | Set the height of the image in pixels. If left null (no value specified), then the image will display at its natural height. |
+| options.imageWidth | <code>number</code> | Set the width of the image in pixels. If left null (no value specified), then the image will display at its natural width. |
+| options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
+| options.taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
+| options.numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
 
 <a name="module_showMessage"></a>
 
@@ -75,15 +86,20 @@ Builds a trial with a onscreen message, optional buttons and optional phtodiode 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
-| duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags. |
-| message | <code>string</code> | Onscreen message to be shown in the trial, if not set default text is empty. |
-| onstart | <code>boolean</code> | True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.(default: false) |
-| responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
-| taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
-| numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
-| buttons | <code>Array</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
+| config.USE_EEG | <code>boolean</code> | USE_EEG flag |
+| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
+| options | <code>Object</code> |  |
+| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
+| options.duration | <code>number</code> | The trial duration in milliseconds. |
+| options.message | <code>string</code> | Onscreen message to be shown in the trial, if not set default text is empty. |
+| options.onstart | <code>boolean</code> | True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.(default: false) |
+| options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
+| options.taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
+| options.numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1. |
+| options.buttons | <code>Array</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. |
 
 <a name="module_userId"></a>
 
@@ -93,11 +109,16 @@ Builds a trial with set Id message and user Id input.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| jsPsych | <code>object</code> | The instance of the jspsych passed as an object. |
-| responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
-| duration | <code>number</code> | The trial duration in milliseconds. |
-| config | <code>object</code> | The configuration object for USE_PHOTODIODE, IS_ELECTRON and USE_MTURK flags, by default only IS_ELECTRON is set to be true. |
-| setIdMessage | <code>string</code> | Onscreen text for setting user id or for the input box to enter patient id. |
-| responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
-| defaultPatientId | <code>boolean</code> | The patient id to show when requesting a patient ID, if not set default is empty. |
+| jsPsych | <code>Object</code> | The instance of the jspsych passed as an object. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
+| config.USE_EEG | <code>boolean</code> | USE_EEG flag |
+| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
+| options | <code>Object</code> |  |
+| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
+| options.duration | <code>number</code> | The trial duration in milliseconds. |
+| options.setIdMessage | <code>string</code> | Onscreen text for setting user id or for the input box to enter patient id. |
+| options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
+| options.defaultPatientId | <code>boolean</code> | The patient id to show when requesting a patient ID, if not set default is empty. |
 
