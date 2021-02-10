@@ -17,7 +17,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {Object} options
  * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial.
  * @param {number} options.duration - The trial duration in milliseconds.
- * @param {HTML string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string.
+ * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string.
  * @param {string} options.message - Onscreen message to be shown in the trial, if not set default text is empty.
  * @param {boolean} options.onstart - True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.(default: false)
  * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
