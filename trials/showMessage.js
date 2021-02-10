@@ -17,6 +17,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {Object} options
  * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial.
  * @param {number} options.duration - The trial duration in milliseconds.
+ * @param {HTML string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string.
  * @param {string} options.message - Onscreen message to be shown in the trial, if not set default text is empty.
  * @param {boolean} options.onstart - True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.(default: false)
  * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
@@ -28,6 +29,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
 module.exports = function (config, options) {
   const defaults = {
     message: "",
+    stimulus: "",
     onstart: false,
     responseEndsTrial: false,
     taskCode: null,
@@ -37,6 +39,7 @@ module.exports = function (config, options) {
     responseType,
     duration,
     message,
+    stimulus,
     onstart,
     responseEndsTrial,
     taskCode,
@@ -44,17 +47,22 @@ module.exports = function (config, options) {
     buttons,
   } = { ...defaults, ...options };
 
-  let stimulus = onstart ? baseStimulus(message) : baseStimulus(message, true);
-  if (config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
+  let stimulusOrMessage =
+    message !== ""
+      ? onstart
+        ? baseStimulus(`<h1>${message}</h1>`, true, true)
+        : baseStimulus(`<h1>${message}</h1>`, true)
+      : stimulus;
+  if (config.USE_PHOTODIODE) stimulusOrMessage += photodiodeGhostBox();
 
   return {
     type: responseType,
-    stimulus: !onstart ? stimulus : "",
+    stimulus: !onstart ? stimulusOrMessage : "",
     trial_duration: duration,
     response_ends_trial: responseEndsTrial,
     choices: buttons,
     on_start: (trial) => {
-      onstart ? (trial.stimulus = stimulus) : "";
+      onstart ? (trial.stimulus = stimulusOrMessage) : "";
     },
     on_load: () =>
       taskCode != null ? pdSpotEncode(taskCode, numBlinks, config) : null,

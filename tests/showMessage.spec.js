@@ -71,4 +71,17 @@ describe("showMessage trial", () => {
     });
     expect(result.on_start(trial)).not.toEqual("");
   });
+
+  it("showMessage with stimulus", () => {
+    const config = init({ USE_PHOTODIODE: false });
+    const stimulus = `<h3>Experiment Start</h3>`;
+    const result = showMessage(config, {
+      responseType: "html_keyboard_response",
+      duration: 100,
+      stimulus: stimulus,
+      taskCode: 10,
+      numBlinks: 10,
+    });
+    expect(result.stimulus).toContain(stimulus);
+  });
 });

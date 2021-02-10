@@ -34,7 +34,7 @@ module.exports = function (config, options) {
   };
 
   let stimulus =
-    '<div class="beads_container"><div id="fixation-dot"> </div></div>';
+    '<div class="center_container"><div id="fixation-dot"> </div></div>';
   if (config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 
   return {

@@ -6,7 +6,6 @@ describe("Fixation trial", () => {
   it("fixation without photodiode box", () => {
     const config = init({ USE_PHOTODIODE: false });
     const result = fixation(config, {
-      responseType: "html_keyboard_response",
       duration: 100,
     });
     expect(result.stimulus).toContain("fixation-dot");
@@ -19,7 +18,6 @@ describe("Fixation trial", () => {
     const config = init({ USE_PHOTODIODE: true });
     let data = { code: null };
     const result = fixation(config, {
-      responseType: "html_keyboard_response",
       duration: 100,
       taskCode: 10,
       numBlinks: 10,
@@ -33,7 +31,6 @@ describe("Fixation trial", () => {
   it("fixation with jsPsych.NO_KEYS", () => {
     const config = init({ USE_PHOTODIODE: false });
     const result = fixation(config, {
-      responseType: "html_keyboard_response",
       duration: 100,
       buttons: jsPsych.NO_KEYS,
     });
@@ -44,7 +41,6 @@ describe("Fixation trial", () => {
     const config = init({ USE_PHOTODIODE: false });
     const choices = ["p", "q"];
     const result = fixation(config, {
-      responseType: "html_keyboard_response",
       duration: 100,
       buttons: choices,
     });

@@ -13,6 +13,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
  * @param {number} options.duration - The trial duration in milliseconds.
+ * @param {HTML string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string.
  * @param {string} options.setIdMessage - Onscreen text for setting user id or for the input box to enter patient id.
  * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
  * @param {boolean} options.defaultPatientId - The patient id to show when requesting a patient ID, if not set default is empty.
@@ -21,20 +22,27 @@ const { baseStimulus } = require("../lib/markup/stimuli");
 module.exports = function (jsPsych, config, options) {
   const defaults = {
     setIdMessage: "",
+    stimulus: "",
     responseEndsTrial: false,
     defaultPatientId: "",
   };
   const {
     duration,
+    stimulus,
     setIdMessage,
     responseEndsTrial,
     defaultPatientId,
   } = { ...defaults, ...options };
 
+  const stimulusOrMessage =
+    setIdMessage !== ""
+      ? baseStimulus(`<h1>${setIdMessage}</h1>`, true)
+      : stimulus;
+
   if (config.USE_MTURK) {
     return {
-      type: 'html_keyboard_response',
-      stimulus: baseStimulus(`<h1>${setIdMessage}</h1>`, true),
+      type: "html_keyboard_response",
+      stimulus: stimulusOrMessage,
       response_ends_trial: responseEndsTrial,
       trial_duration: duration,
       on_finish: (data) => {
