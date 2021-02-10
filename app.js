@@ -1,5 +1,3 @@
-const fs = require('fs');
-const trials = './trials';
 const _ = require('lodash')
 
 const defaultconfig = { USE_PHOTODIODE: false,  USE_EEG: false, USE_ELECTRON: true, USE_MTURK: false}
@@ -13,5 +11,6 @@ module.exports = {
   showMessage: require('./trials/showMessage.js'),
   fixation: require('./trials/fixation.js'),
   userId: require('./trials/userId.js'),
-  showImage: require('./trials/showImage.js')
+  showImage: require('./trials/showImage.js'),
+  slider: require('./trials/slider.js')
 };

@@ -7,7 +7,6 @@ describe("userId trial", () => {
     const config = init({ USE_MTURK: true });
     const setIdMessage = "Setting User ID";
     const result = userId(jsPsych, config, {
-      responseType: "html_keyboard_response",
       duration: 100,
       setIdMessage: setIdMessage,
     });
