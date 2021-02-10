@@ -10,10 +10,10 @@ All-in-one starter app with behavioral task trials
 <dd><p>Builds a trial with a fixation dot and optional photodiode box.</p>
 </dd>
 <dt><a href="#module_showImage">showImage</a></dt>
-<dd><p>Builds a trial with a onscreen message, optional buttons and optional phtodiode box</p>
+<dd><p>Builds a trial with a onscreen message, optional buttons and optional photodiode box</p>
 </dd>
 <dt><a href="#module_showMessage">showMessage</a></dt>
-<dd><p>Builds a trial with a onscreen message, optional buttons and optional phtodiode box</p>
+<dd><p>Builds a trial with a onscreen message, optional buttons and optional photodiode box</p>
 </dd>
 <dt><a href="#module_userId">userId</a></dt>
 <dd><p>Builds a trial with set Id message and user Id input.</p>
@@ -42,13 +42,12 @@ Builds a trial with a fixation dot and optional photodiode box.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags. |
 | config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
 | config.USE_EEG | <code>boolean</code> | USE_EEG flag |
-| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_ELECTRON | <code>boolean</code> | USE_ELECTRON flag |
 | config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
 | options | <code>Object</code> |  |
-| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
 | options.duration | <code>number</code> | The trial duration in milliseconds. |
 | options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | options.taskCode | <code>number</code> | Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true. |
@@ -58,15 +57,15 @@ Builds a trial with a fixation dot and optional photodiode box.
 <a name="module_showImage"></a>
 
 ## showImage
-Builds a trial with a onscreen message, optional buttons and optional phtodiode box
+Builds a trial with a onscreen message, optional buttons and optional photodiode box
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags. |
 | config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
 | config.USE_EEG | <code>boolean</code> | USE_EEG flag |
-| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_ELECTRON | <code>boolean</code> | USE_ELECTRON flag |
 | config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
 | options | <code>Object</code> |  |
 | options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
@@ -81,15 +80,15 @@ Builds a trial with a onscreen message, optional buttons and optional phtodiode 
 <a name="module_showMessage"></a>
 
 ## showMessage
-Builds a trial with a onscreen message, optional buttons and optional phtodiode box
+Builds a trial with a onscreen message, optional buttons and optional photodiode box
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags. |
 | config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
 | config.USE_EEG | <code>boolean</code> | USE_EEG flag |
-| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_ELECTRON | <code>boolean</code> | USE_ELECTRON flag |
 | config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
 | options | <code>Object</code> |  |
 | options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
@@ -110,13 +109,12 @@ Builds a trial with set Id message and user Id input.
 | Param | Type | Description |
 | --- | --- | --- |
 | jsPsych | <code>Object</code> | The instance of the jspsych passed as an object. |
-| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags. |
+| config | <code>Object</code> | The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags. |
 | config.USE_PHOTODIODE | <code>boolean</code> | USE_PHOTODIODE flag |
 | config.USE_EEG | <code>boolean</code> | USE_EEG flag |
-| config.IS_ELECTRON | <code>boolean</code> | IS_ELECTRON flag |
+| config.USE_ELECTRON | <code>boolean</code> | USE_ELECTRON flag |
 | config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
 | options | <code>Object</code> |  |
-| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
 | options.duration | <code>number</code> | The trial duration in milliseconds. |
 | options.setIdMessage | <code>string</code> | Onscreen text for setting user id or for the input box to enter patient id. |
 | options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
