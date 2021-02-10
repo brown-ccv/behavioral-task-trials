@@ -93,6 +93,7 @@ Builds a trial with a onscreen message, optional buttons and optional photodiode
 | options | <code>Object</code> |  |
 | options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. |
 | options.duration | <code>number</code> | The trial duration in milliseconds. |
+| options.stimulus | <code>string</code> | Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. |
 | options.message | <code>string</code> | Onscreen message to be shown in the trial, if not set default text is empty. |
 | options.onstart | <code>boolean</code> | True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.(default: false) |
 | options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
@@ -116,6 +117,7 @@ Builds a trial with set Id message and user Id input.
 | config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
 | options | <code>Object</code> |  |
 | options.duration | <code>number</code> | The trial duration in milliseconds. |
+| options.stimulus | <code>string</code> | Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. |
 | options.setIdMessage | <code>string</code> | Onscreen text for setting user id or for the input box to enter patient id. |
 | options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration, by default false value. |
 | options.defaultPatientId | <code>boolean</code> | The patient id to show when requesting a patient ID, if not set default is empty. |
