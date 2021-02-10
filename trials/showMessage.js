@@ -6,7 +6,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
 
 /**
  * @description
- * Builds a trial with a onscreen message, optional buttons and optional phtodiode box
+ * Builds a trial with a onscreen message, optional buttons and optional photodiode box
  *
  * @module
  * @param {Object} config - The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags.
