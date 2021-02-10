@@ -9,13 +9,12 @@ const { jitter50 } = require("../lib/utils");
  * Builds a trial with a fixation dot and optional photodiode box.
  *
  * @module
- * @param {Object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
+ * @param {Object} config - The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags.
  * @param {boolean} config.USE_PHOTODIODE - USE_PHOTODIODE flag
  * @param {boolean} config.USE_EEG - USE_EEG flag
- * @param {boolean} config.IS_ELECTRON - IS_ELECTRON flag
+ * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial.
  * @param {number} options.duration - The trial duration in milliseconds.
  * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
  * @param {number} options.taskCode - Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true.
@@ -29,21 +28,17 @@ module.exports = function (config, options) {
     taskCode: null,
     numBlinks: 1,
   };
-  const {
-    responseType,
-    duration,
-    responseEndsTrial,
-    taskCode,
-    numBlinks,
-    buttons,
-  } = { ...defaults, ...options };
+  const { duration, responseEndsTrial, taskCode, numBlinks, buttons } = {
+    ...defaults,
+    ...options,
+  };
 
   let stimulus =
     '<div class="beads_container"><div id="fixation-dot"> </div></div>';
   if (config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 
   return {
-    type: responseType,
+    type: "html_keyboard_response",
     choices: buttons,
     stimulus: stimulus,
     response_ends_trial: responseEndsTrial,

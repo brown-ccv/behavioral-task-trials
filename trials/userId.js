@@ -6,13 +6,12 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  *
  * @module
  * @param {Object} jsPsych - The instance of the jspsych passed as an object.
- * @param {Object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
+ * @param {Object} config - The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags.
  * @param {boolean} config.USE_PHOTODIODE - USE_PHOTODIODE flag
  * @param {boolean} config.USE_EEG - USE_EEG flag
- * @param {boolean} config.IS_ELECTRON - IS_ELECTRON flag
+ * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial.
  * @param {number} options.duration - The trial duration in milliseconds.
  * @param {string} options.setIdMessage - Onscreen text for setting user id or for the input box to enter patient id.
  * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
@@ -26,7 +25,6 @@ module.exports = function (jsPsych, config, options) {
     defaultPatientId: "",
   };
   const {
-    responseType,
     duration,
     setIdMessage,
     responseEndsTrial,
@@ -35,7 +33,7 @@ module.exports = function (jsPsych, config, options) {
 
   if (config.USE_MTURK) {
     return {
-      type: responseType,
+      type: 'html_keyboard_response',
       stimulus: baseStimulus(`<h1>${setIdMessage}</h1>`, true),
       response_ends_trial: responseEndsTrial,
       trial_duration: duration,

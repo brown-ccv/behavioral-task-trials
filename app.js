@@ -2,7 +2,7 @@ const fs = require('fs');
 const trials = './trials';
 const _ = require('lodash')
 
-const defaultconfig = { USE_PHOTODIODE: false,  USE_EEG: false, IS_ELECTRON: true, USE_MTURK: false}
+const defaultconfig = { USE_PHOTODIODE: false,  USE_EEG: false, USE_ELECTRON: true, USE_MTURK: false}
 
 
 module.exports = { 

@@ -10,10 +10,10 @@ const { jitter50 } = require("../lib/utils");
  * Builds a trial with a onscreen message, optional buttons and optional phtodiode box
  *
  * @module
- * @param {Object} config - The configuration object for USE_PHOTODIODE, USE_EEG, IS_ELECTRON and USE_MTURK flags.
+ * @param {Object} config - The configuration object for USE_PHOTODIODE, USE_EEG, USE_ELECTRON and USE_MTURK flags.
  * @param {boolean} config.USE_PHOTODIODE - USE_PHOTODIODE flag
  * @param {boolean} config.USE_EEG - USE_EEG flag
- * @param {boolean} config.IS_ELECTRON - IS_ELECTRON flag
+ * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
  * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial.
