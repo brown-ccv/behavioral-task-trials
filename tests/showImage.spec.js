@@ -5,7 +5,7 @@ describe("showImage trial", () => {
   it("showImage without photodiode box", () => {
     const config = init({ USE_PHOTODIODE: false });
     let data = { code: null };
-    const result = showImage(config, {
+    const result = showImage(config, "", {
       duration: 100,
     });
     expect(result.prompt).not.toContain("photodiode-spot");
@@ -17,7 +17,7 @@ describe("showImage trial", () => {
   it("showImage with photodiode box and task code", () => {
     const config = init({ USE_PHOTODIODE: true });
     let data = { code: null };
-    const result = showImage(config, {
+    const result = showImage(config, "", {
       duration: 100,
       taskCode: 10,
     });
