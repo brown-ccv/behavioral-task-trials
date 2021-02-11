@@ -1,0 +1,27 @@
+name: Tests
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  job0:
+    name: Tests
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Assets
+        run: yarn build
+
+      - name: Test
+        run: yarn test
