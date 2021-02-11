@@ -12,32 +12,38 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {number} options.duration - The trial duration in milliseconds.
- * @param {string} options.setIdMessage - Onscreen text for setting user id or for the input box to enter patient id.
- * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
- * @param {boolean} options.defaultPatientId - The patient id to show when requesting a patient ID, if not set default is empty.
+ * @param {number} options.duration - trial duration in milliseconds, when config.USE_MTURK is set to true. (default: 1000)
+ * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial. If the stimulus is not provided, message should be provided as a string. (default: "")
+ * @param {string} options.setIdMessage - Onscreen text for setting user id or for the input box to enter user id. (default: "")
+ * @param {string} options.defaultId - The user id to show when requesting a user ID, when config.USE_MTURK is set to false.(default: "")
  */
 
 module.exports = function (jsPsych, config, options) {
   const defaults = {
+    duration: 1000,
+    stimulus: "",
     setIdMessage: "",
-    responseEndsTrial: false,
-    defaultPatientId: "",
+    defaultId: "",
   };
   const {
     duration,
+    stimulus,
     setIdMessage,
-    responseEndsTrial,
-    defaultPatientId,
+    defaultId,
   } = { ...defaults, ...options };
+
+  const stimulusOrMessage =
+    setIdMessage !== ""
+      ? baseStimulus(`<h1>${setIdMessage}</h1>`, true)
+      : stimulus;
 
   if (config.USE_MTURK) {
     return {
-      type: 'html_keyboard_response',
-      stimulus: baseStimulus(`<h1>${setIdMessage}</h1>`, true),
-      response_ends_trial: responseEndsTrial,
+      type: "html_keyboard_response",
+      stimulus: stimulusOrMessage,
+      response_ends_trial: false,
       trial_duration: duration,
-      on_finish: (data) => {
+      on_finish: () => {
         const turkInfo = jsPsych.turk.turkInfo();
         const uniqueId = `${turkInfo.workerId}:${turkInfo.assignmentId}`;
         console.log(uniqueId);
@@ -48,8 +54,8 @@ module.exports = function (jsPsych, config, options) {
       type: "survey_text",
       questions: [
         {
-          prompt: baseStimulus(`<h1>${setIdMessage}</h1>`, true),
-          value: defaultPatientId,
+          prompt: stimulusOrMessage,
+          value: defaultId,
         },
       ],
       on_finish: (data) => {

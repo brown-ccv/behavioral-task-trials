@@ -5,6 +5,7 @@ const jsPsych = require("jspsych-react");
 describe("showMessage trial", () => {
   it("showMessage without photodiode box", () => {
     const config = init({ USE_PHOTODIODE: false });
+    let data = { code: null };
     const message = "Experiment Start";
     const result = showMessage(config, {
       responseType: "html_keyboard_response",
@@ -13,8 +14,8 @@ describe("showMessage trial", () => {
     });
     expect(result.stimulus).toContain(message);
     expect(result.stimulus).not.toContain("photodiode-spot");
-    expect(result.on_load()).toEqual(null);
-    expect(result.on_finish()).toEqual(null);
+    expect(result.on_load()).toEqual(undefined);
+    expect(result.on_finish(data)).toEqual(1);
   });
 
   it("showMessage with photodiode box and task code", () => {
@@ -30,7 +31,7 @@ describe("showMessage trial", () => {
     });
     expect(result.stimulus).toContain(message);
     expect(result.stimulus).toContain("photodiode-spot");
-    expect(result.on_load()).not.toEqual(null);
+    expect(result.on_load()).toEqual(undefined);
     expect(result.on_finish(data)).toEqual(10);
   });
 
@@ -70,5 +71,18 @@ describe("showMessage trial", () => {
       numBlinks: 10,
     });
     expect(result.on_start(trial)).not.toEqual("");
+  });
+
+  it("showMessage with stimulus", () => {
+    const config = init({ USE_PHOTODIODE: false });
+    const stimulus = `<h3>Experiment Start</h3>`;
+    const result = showMessage(config, {
+      responseType: "html_keyboard_response",
+      duration: 100,
+      stimulus: stimulus,
+      taskCode: 10,
+      numBlinks: 10,
+    });
+    expect(result.stimulus).toContain(stimulus);
   });
 });

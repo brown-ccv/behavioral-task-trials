@@ -1,12 +1,11 @@
 const countdown = require("../trials/countdown.js");
 
 describe("Countdown trial", () => {
-  it("counts to 10 with a text countdown", () => {
+  it("counts to 10 with a message countdown", () => {
     const returnobject = {
       type: "html_keyboard_response",
-      stimulus: "<h3>Countdown</h3",
+      stimulus: "<h3>Countdown</h3>",
       trial_duration: 1000,
-      response_ends_trial: false,
       timeline: [
         { prompt: "<h1>10</h1>" },
         { prompt: "<h1>9</h1>" },
@@ -19,13 +18,13 @@ describe("Countdown trial", () => {
         { prompt: "<h1>2</h1>" },
         { prompt: "<h1>1</h1>" },
       ],
+      response_ends_trial: false,
     };
     expect(
       countdown({
         duration: 1000,
-        text: "Countdown",
+        message: "Countdown",
         time: 10,
-        responseEndsTrial: false,
       })
     ).toEqual(returnobject);
   });

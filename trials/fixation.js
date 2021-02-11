@@ -2,7 +2,7 @@ const {
   pdSpotEncode,
   photodiodeGhostBox,
 } = require("../lib/markup/photodiode");
-const { jitter50 } = require("../lib/utils");
+const { jitterx } = require("../lib/utils");
 
 /**
  * @description
@@ -15,36 +15,34 @@ const { jitter50 } = require("../lib/utils");
  * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {number} options.duration - The trial duration in milliseconds.
- * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
- * @param {number} options.taskCode - Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true.
- * @param {number} options.numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1.
- * @param {any} options.buttons - This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed.
+ * @param {number} options.duration - trial duration in milliseconds jittered with the jitter param. (default: 1000)
+ * @param {number} options.jitter - jitter range (0-jitter) to add from to the trial duration (default: 50)
+ * @param {number} options.taskCode - Task code to be saved into data log (default: 1)
+ * @param {number} options.numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1)
  */
 
 module.exports = function (config, options) {
   const defaults = {
-    responseEndsTrial: false,
-    taskCode: null,
+    duration: 1000,
+    jitter: 50,
+    taskCode: 1,
     numBlinks: 1,
   };
-  const { duration, responseEndsTrial, taskCode, numBlinks, buttons } = {
+  const { duration, jitter, taskCode, numBlinks } = {
     ...defaults,
     ...options,
   };
 
   let stimulus =
-    '<div class="beads_container"><div id="fixation-dot"> </div></div>';
+    '<div class="center_container"><div id="fixation-dot"> </div></div>';
   if (config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 
   return {
     type: "html_keyboard_response",
-    choices: buttons,
     stimulus: stimulus,
-    response_ends_trial: responseEndsTrial,
-    trial_duration: jitter50(duration),
-    on_load: () =>
-      taskCode != null ? pdSpotEncode(taskCode, numBlinks, config) : null,
-    on_finish: (data) => (taskCode != null ? (data.code = taskCode) : null),
+    response_ends_trial: false,
+    trial_duration: jitterx(duration, jitter),
+    on_load: () => pdSpotEncode(taskCode, numBlinks, config),
+    on_finish: (data) => (data.code = taskCode),
   };
 };
