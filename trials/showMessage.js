@@ -29,14 +29,14 @@ const { baseStimulus } = require("../lib/markup/stimuli");
 module.exports = function (config, options) {
   const defaults = {
     responseType: "html_keyboard_response",
-    duration: options.responseType == "html_keyboard_response" ? 1000 : null,
+    duration: options.responseType == "html_button_response" ? null : 1000,
     stimulus: "",
     message: "",
     onstart: false,
     responseEndsTrial: false,
     taskCode: 1,
     numBlinks: 1,
-    buttons: options.responseType == "html_button_response" ? ["OK"] : null,
+    buttons: options.responseType == "html_keyboard_response" ? null : ["OK"],
   };
   const {
     responseType,
