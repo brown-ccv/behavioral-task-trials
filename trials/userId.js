@@ -12,25 +12,23 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {number} options.duration - The trial duration in milliseconds.
- * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string.
- * @param {string} options.setIdMessage - Onscreen text for setting user id or for the input box to enter patient id.
- * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
- * @param {boolean} options.defaultPatientId - The patient id to show when requesting a patient ID, if not set default is empty.
+ * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
+ * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. (default: "")
+ * @param {string} options.setIdMessage - Onscreen text for setting user id or for the input box to enter patient id. (default: "")
+ * @param {string} options.defaultPatientId - The patient id to show when requesting a patient ID. (default: "")
  */
 
 module.exports = function (jsPsych, config, options) {
   const defaults = {
-    setIdMessage: "",
+    duration: 1000,
     stimulus: "",
-    responseEndsTrial: false,
+    setIdMessage: "",
     defaultPatientId: "",
   };
   const {
     duration,
     stimulus,
     setIdMessage,
-    responseEndsTrial,
     defaultPatientId,
   } = { ...defaults, ...options };
 
@@ -43,9 +41,9 @@ module.exports = function (jsPsych, config, options) {
     return {
       type: "html_keyboard_response",
       stimulus: stimulusOrMessage,
-      response_ends_trial: responseEndsTrial,
+      response_ends_trial: false,
       trial_duration: duration,
-      on_finish: (data) => {
+      on_finish: () => {
         const turkInfo = jsPsych.turk.turkInfo();
         const uniqueId = `${turkInfo.workerId}:${turkInfo.assignmentId}`;
         console.log(uniqueId);

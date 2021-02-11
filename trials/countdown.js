@@ -6,19 +6,18 @@ const _ = require("lodash");
  *
  * @module
  * @param {Object} options
- * @param {number} options.duration - The trial duration.
- * @param {string} options.text - Optional text for the countdown. (default: "")
- * @param {number} options.time - The number of seconds for the countdown. (default: 10s)
- * @param {boolean} options.responseEndsTrial - True if the trial ends on response, false if the trial waits for the duration. (default: false)
+ * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
+ * @param {string} options.text - (optional) text for the countdown. (default: "")
+ * @param {number} options.time - start number for the countdown. (default: 10)
  */
 
 module.exports = function (options) {
   const defaults = {
+    duration: 1000,
     text: "",
     time: 10,
-    responseEndsTrial: false,
   };
-  const { duration, text, time, responseEndsTrial } = { defaults, ...options };
+  const { duration, text, time } = { defaults, ...options };
   const times = _.range(time, 0, -1);
   const timeline = times.map((val) => {
     return { prompt: `<h1>${val}</h1>` };
@@ -28,7 +27,7 @@ module.exports = function (options) {
     type: "html_keyboard_response",
     stimulus: `<h3>${text}</h3`,
     trial_duration: duration,
-    response_ends_trial: responseEndsTrial,
+    response_ends_trial: false,
     timeline: timeline,
   };
 };

@@ -5,6 +5,7 @@ const jsPsych = require("jspsych-react");
 describe("showMessage trial", () => {
   it("showMessage without photodiode box", () => {
     const config = init({ USE_PHOTODIODE: false });
+    let data = { code: null };
     const message = "Experiment Start";
     const result = showMessage(config, {
       responseType: "html_keyboard_response",
@@ -13,8 +14,8 @@ describe("showMessage trial", () => {
     });
     expect(result.stimulus).toContain(message);
     expect(result.stimulus).not.toContain("photodiode-spot");
-    expect(result.on_load()).toEqual(null);
-    expect(result.on_finish()).toEqual(null);
+    expect(result.on_load()).toEqual(undefined);
+    expect(result.on_finish(data)).toEqual(1);
   });
 
   it("showMessage with photodiode box and task code", () => {
@@ -30,7 +31,7 @@ describe("showMessage trial", () => {
     });
     expect(result.stimulus).toContain(message);
     expect(result.stimulus).toContain("photodiode-spot");
-    expect(result.on_load()).not.toEqual(null);
+    expect(result.on_load()).toEqual(undefined);
     expect(result.on_finish(data)).toEqual(10);
   });
 
