@@ -2,7 +2,7 @@ const {
   pdSpotEncode,
   photodiodeGhostBox,
 } = require("../lib/markup/photodiode");
-const { jitter50 } = require("../lib/utils");
+const { jitterx } = require("../lib/utils");
 
 /**
  * @description
@@ -15,7 +15,8 @@ const { jitter50 } = require("../lib/utils");
  * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
+ * @param {number} options.duration - trial duration in milliseconds jittered with the jitter param. (default: 1000)
+ * @param {number} options.jitter - jitter range (0-jitter) to add from to the trial duration (default: 50)
  * @param {number} options.taskCode - Task code to be saved into data log (default: 1)
  * @param {number} options.numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1)
  */
@@ -23,10 +24,11 @@ const { jitter50 } = require("../lib/utils");
 module.exports = function (config, options) {
   const defaults = {
     duration: 1000,
+    jitter: 50,
     taskCode: 1,
     numBlinks: 1,
   };
-  const { duration, taskCode, numBlinks } = {
+  const { duration, jitter, taskCode, numBlinks } = {
     ...defaults,
     ...options,
   };
@@ -39,7 +41,7 @@ module.exports = function (config, options) {
     type: "html_keyboard_response",
     stimulus: stimulus,
     response_ends_trial: false,
-    trial_duration: jitter50(duration),
+    trial_duration: jitterx(duration, jitter),
     on_load: () => pdSpotEncode(taskCode, numBlinks, config),
     on_finish: (data) => (data.code = taskCode),
   };
