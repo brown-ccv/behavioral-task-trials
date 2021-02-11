@@ -15,25 +15,28 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial.
- * @param {number} options.duration - The trial duration in milliseconds.
- * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string.
- * @param {string} options.message - Onscreen message to be shown in the trial, if not set default text is empty.
+ * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial. (default: 'html_keyboard_response')
+ * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
+ * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. (default: "")
+ * @param {string} options.message - Onscreen message to be shown in the trial. (default: "")
  * @param {boolean} options.onstart - True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.(default: false)
- * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration, by default false value.
- * @param {number} options.taskCode - Task code to be saved into data log and for pdSpotEncode, which by default is null and is passed when config has USE_PHOTODIODE set true.
- * @param {number} options.numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. If not set, by default is 1.
- * @param {Array} options.buttons - This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed.
+ * @param {boolean} options.responseEndsTrial - True if the trial ends on response,false if the trial waits for the duration. (default: false)
+ * @param {number} options.taskCode - Task code to be saved into data log (default: 1)
+ * @param {number} options.numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1)
+ * @param {Array} options.buttons - This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. (default: ["OK"])
  */
 
 module.exports = function (config, options) {
   const defaults = {
-    message: "",
+    responseType: "html_keyboard_response",
+    duration: 1000,
     stimulus: "",
+    message: "",
     onstart: false,
     responseEndsTrial: false,
-    taskCode: null,
+    taskCode: 1,
     numBlinks: 1,
+    buttons: ["OK"],
   };
   const {
     responseType,
@@ -64,8 +67,7 @@ module.exports = function (config, options) {
     on_start: (trial) => {
       onstart ? (trial.stimulus = stimulusOrMessage) : "";
     },
-    on_load: () =>
-      taskCode != null ? pdSpotEncode(taskCode, numBlinks, config) : null,
-    on_finish: (data) => (taskCode != null ? (data.code = taskCode) : null),
+    on_load: () => pdSpotEncode(taskCode, numBlinks, config),
+    on_finish: (data) => (data.code = taskCode),
   };
 };

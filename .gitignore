@@ -2,3 +2,4 @@ node_modules
 coverage
 testapp.js
 .yarn.lock
+**/.DS_Store
