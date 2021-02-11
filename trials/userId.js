@@ -12,10 +12,10 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {boolean} config.USE_ELECTRON - USE_ELECTRON flag
  * @param {boolean} config.USE_MTURK - USE_MTURK flag
  * @param {Object} options
- * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
- * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. (default: "")
+ * @param {number} options.duration - trial duration in milliseconds, when config.USE_MTURK is set to true. (default: 1000)
+ * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial. If the stimulus is not provided, message should be provided as a string. (default: "")
  * @param {string} options.setIdMessage - Onscreen text for setting user id or for the input box to enter patient id. (default: "")
- * @param {string} options.defaultId - The patient id to show when requesting a patient ID. (default: "")
+ * @param {string} options.defaultId - The patient id to show when requesting a patient ID, when config.USE_MTURK is set to false.(default: "")
  */
 
 module.exports = function (jsPsych, config, options) {
@@ -54,7 +54,7 @@ module.exports = function (jsPsych, config, options) {
       type: "survey_text",
       questions: [
         {
-          prompt: baseStimulus(`<h1>${setIdMessage}</h1>`, true),
+          prompt: stimulusOrMessage,
           value: defaultId,
         },
       ],
