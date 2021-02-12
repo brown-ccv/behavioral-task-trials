@@ -12,5 +12,7 @@ module.exports = {
   fixation: require('./trials/fixation.js'),
   userId: require('./trials/userId.js'),
   showImage: require('./trials/showImage.js'),
-  slider: require('./trials/slider.js')
+  slider: require('./trials/slider.js'),
+  survey: require('./trials/survey.js'),
+  multiSurvey: require('./trials/multiSurvey.js')
 };
