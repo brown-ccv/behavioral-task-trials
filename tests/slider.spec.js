@@ -4,14 +4,9 @@ const { init } = require("../app.js");
 describe("slider trial", () => {
   it("slider with require movement", () => {
     const message = "Move the slider to the right.";
-    const uniqueId = "0423";
-    const result = slider({
-      message: message,
-      requireMovement: true,
-      uniqueId: uniqueId,
-    });
+    const result = slider(
+      message);
     const data = {
-      uniqueId: null,
       prompt: null,
       answer: null,
       response: "response",
@@ -19,7 +14,6 @@ describe("slider trial", () => {
     result.on_finish(data);
     expect(result.stimulus).toContain(message);
     expect(result.require_movement).toEqual(true);
-    expect(data.uniqueId).toEqual(uniqueId);
     expect(data.prompt).toEqual([message]);
     expect(data.answer).toEqual([data.response]);
   });
