@@ -1,5 +1,4 @@
 const slider = require("../trials/slider.js");
-const { init } = require("../app.js");
 
 describe("slider trial", () => {
   it("slider with require movement", () => {
