@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>countdown.js - Documentation</title>
+    <title>slider - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,56 +29,180 @@
 
 <div id="main">
     
-    <h1 class="page-title">countdown.js</h1>
+    <h1 class="page-title">slider</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const _ = require("lodash");
+        
+            
+        
+    
+</header>
 
-/**
- * @description
- * Builds a countdown transition with the given message and number of seconds.
- *
- * @module
- * @param {Object} options
- * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
- * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial. If the stimulus is not provided, message should be provided as a string. (default: "")
- * @param {string} options.message - (optional) message for the countdown. (default: "")
- * @param {number} options.time - start number for the countdown. (default: 3)
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Builds a trial with a onscreen message and allows the subject to respond by dragging a slider.</div>
+        
 
-module.exports = function (options) {
-  const defaults = {
-    duration: 1000,
-    stimulus: "",
-    message: "",
-    time: 3,
-  };
-  const { duration, message, stimulus, time } = { ...defaults, ...options };
+        
+            
+<div class="section-method">
 
-  const stimulusOrMessage = message !== "" ? `&lt;h3>${message}&lt;/h3>` : stimulus;
-  const times = _.range(time, 0, -1);
-  const timeline = times.map((val) => {
-    return { prompt: `&lt;h1>${val}&lt;/h1>` };
-  });
 
-  return {
-    type: "html_keyboard_response",
-    stimulus: stimulusOrMessage,
-    trial_duration: duration,
-    response_ends_trial: false,
-    timeline: timeline,
-  };
-};
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="slider.js.html">slider.js</a>, <a href="slider.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                The string to be displayed, this can be formatted as an HTML string. (default: empty string)
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

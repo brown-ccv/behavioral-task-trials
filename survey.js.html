@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>countdown.js - Documentation</title>
+    <title>survey.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">countdown.js</h1>
+    <h1 class="page-title">survey.js</h1>
     
 
     
@@ -39,41 +39,34 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const _ = require("lodash");
+            <pre class="prettyprint source linenums"><code>const { baseStimulus } = require("../lib/markup/stimuli");
 
 /**
  * @description
- * Builds a countdown transition with the given message and number of seconds.
- *
+ * Builds a trial with a question and with free response text fields. The subject types in answers.
  * @module
  * @param {Object} options
- * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
- * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial. If the stimulus is not provided, message should be provided as a string. (default: "")
- * @param {string} options.message - (optional) message for the countdown. (default: "")
- * @param {number} options.time - start number for the countdown. (default: 3)
+ * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. (default: "")
+ * @param {string} options.message - Onscreen message to be shown in the trial. (default: "")
  */
 
 module.exports = function (options) {
   const defaults = {
-    duration: 1000,
     stimulus: "",
     message: "",
-    time: 3,
   };
-  const { duration, message, stimulus, time } = { ...defaults, ...options };
+  const { stimulus, message } = { ...defaults, ...options };
 
-  const stimulusOrMessage = message !== "" ? `&lt;h3>${message}&lt;/h3>` : stimulus;
-  const times = _.range(time, 0, -1);
-  const timeline = times.map((val) => {
-    return { prompt: `&lt;h1>${val}&lt;/h1>` };
-  });
+  const stimulusOrMessage =
+    message !== "" ? baseStimulus(`&lt;h1>${message}&lt;/h1>`, true) : stimulus;
 
   return {
-    type: "html_keyboard_response",
-    stimulus: stimulusOrMessage,
-    trial_duration: duration,
-    response_ends_trial: false,
-    timeline: timeline,
+    type: "survey_text",
+    questions: [{ prompt: stimulusOrMessage, required: true }],
+    on_finish: (data) => {
+      data.prompt = [stimulusOrMessage];
+      data.answer = JSON.parse(data.responses)["Q0"];
+    },
   };
 };
 </code></pre>

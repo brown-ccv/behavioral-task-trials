@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>countdown - Documentation</title>
+    <title>multiSurvey - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">countdown</h1>
+    <h1 class="page-title">multiSurvey</h1>
     
 
     
@@ -51,7 +51,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Builds a countdown transition with the given message and number of seconds.</div>
+            <div class="description">Builds a multi choice/select survey trial.</div>
         
 
         
@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="countdown.js.html">countdown.js</a>, <a href="countdown.js.html#line3">line 3</a>
+        <a href="multiSurvey.js.html">multiSurvey.js</a>, <a href="multiSurvey.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -180,33 +180,7 @@
 
         <tr>
             
-                <td class="name"><code>duration</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>number</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                trial duration in milliseconds. (default: 1000)
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>stimulus</code></td>
+                <td class="name"><code>responseType</code></td>
             
 
             <td class="type">
@@ -223,7 +197,7 @@
             
 
             <td class="description last">
-                Onscreen stimulus in HTML to be shown in the trial. If the stimulus is not provided, message should be provided as a string. (default: "")
+                This tells jsPsych which plugin file to use to run the trial. (default: 'survey_multi_choice')
                 
             </td>
         </tr>
@@ -232,7 +206,7 @@
 
         <tr>
             
-                <td class="name"><code>message</code></td>
+                <td class="name"><code>preamble</code></td>
             
 
             <td class="type">
@@ -249,7 +223,7 @@
             
 
             <td class="description last">
-                (optional) message for the countdown. (default: "")
+                HTML formatted string to display at the top of the page above all the questions. (default: empty string)
                 
             </td>
         </tr>
@@ -258,13 +232,16 @@
 
         <tr>
             
-                <td class="name"><code>time</code></td>
+                <td class="name"><code>prompts</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>number</code></span>
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array</code></span>
 
 
             
@@ -275,7 +252,33 @@
             
 
             <td class="description last">
-                start number for the countdown. (default: 3)
+                The question prompts, this can be a string (one question) or an Array of strings (multiple questions) (default: "")
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ansChoices</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {})
                 
             </td>
         </tr>

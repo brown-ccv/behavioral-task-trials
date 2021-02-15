@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>countdown.js - Documentation</title>
+    <title>slider.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">countdown.js</h1>
+    <h1 class="page-title">slider.js</h1>
     
 
     
@@ -39,41 +39,22 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const _ = require("lodash");
-
-/**
+            <pre class="prettyprint source linenums"><code>/**
  * @description
- * Builds a countdown transition with the given message and number of seconds.
- *
+ * Builds a trial with a onscreen message and allows the subject to respond by dragging a slider.
  * @module
- * @param {Object} options
- * @param {number} options.duration - trial duration in milliseconds. (default: 1000)
- * @param {string} options.stimulus - Onscreen stimulus in HTML to be shown in the trial. If the stimulus is not provided, message should be provided as a string. (default: "")
- * @param {string} options.message - (optional) message for the countdown. (default: "")
- * @param {number} options.time - start number for the countdown. (default: 3)
+ * @param {string} message - The string to be displayed, this can be formatted as an HTML string. (default: empty string)
  */
 
-module.exports = function (options) {
-  const defaults = {
-    duration: 1000,
-    stimulus: "",
-    message: "",
-    time: 3,
-  };
-  const { duration, message, stimulus, time } = { ...defaults, ...options };
-
-  const stimulusOrMessage = message !== "" ? `&lt;h3>${message}&lt;/h3>` : stimulus;
-  const times = _.range(time, 0, -1);
-  const timeline = times.map((val) => {
-    return { prompt: `&lt;h1>${val}&lt;/h1>` };
-  });
-
+module.exports = function (message = "") {
   return {
-    type: "html_keyboard_response",
-    stimulus: stimulusOrMessage,
-    trial_duration: duration,
-    response_ends_trial: false,
-    timeline: timeline,
+    type: "html_slider_response",
+    require_movement: true,
+    stimulus: message,
+    on_finish: (data) => {
+      data.prompt = [message];
+      data.answer = [data.response];
+    },
   };
 };
 </code></pre>
