@@ -20,23 +20,19 @@ module.exports = function (options) {
     ...defaults,
     ...options,
   };
-  let questions = [];
 
-  Object.keys(ansChoices).length === 1
-    ? prompts.forEach(function (prompt, index) {
-        questions.push({
-          prompt: prompt,
-          options: ansChoices[Object.keys(ansChoices)[0]],
-          required: true,
-        });
-      })
-    : prompts.forEach(function (prompt, index) {
-        questions.push({
-          prompt: prompt,
-          options: ansChoices[Object.keys(ansChoices)[index]],
-          required: true,
-        });
-      });
+  // setting questions from prompts and answer choices
+  let questions = [];
+  const answers = Object.values(ansChoices);
+  prompts.forEach(function (prompt, index) {
+    let options = answers.length === 1 ? answers[0] : answers[index];
+    questions.push({
+      prompt: prompt,
+      options,
+      required: true,
+    });
+  });
+
   return {
     type: responseType,
     preamble: preamble,
