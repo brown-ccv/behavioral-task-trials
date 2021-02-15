@@ -9,11 +9,20 @@ All-in-one starter app with behavioral task trials
 <dt><a href="#module_fixation">fixation</a></dt>
 <dd><p>Builds a trial with a fixation dot and optional photodiode box.</p>
 </dd>
+<dt><a href="#module_multiSurvey">multiSurvey</a></dt>
+<dd><p>Builds a multi choice/select survey trial.</p>
+</dd>
 <dt><a href="#module_showImage">showImage</a></dt>
 <dd><p>Builds a trial with a onscreen message and optional photodiode box</p>
 </dd>
 <dt><a href="#module_showMessage">showMessage</a></dt>
 <dd><p>Builds a trial with a onscreen message, optional buttons and optional photodiode box</p>
+</dd>
+<dt><a href="#module_slider">slider</a></dt>
+<dd><p>Builds a trial with a onscreen message and allows the subject to respond by dragging a slider.</p>
+</dd>
+<dt><a href="#module_survey">survey</a></dt>
+<dd><p>Builds a trial with a question and with free response text fields. The subject types in answers.</p>
 </dd>
 <dt><a href="#module_userId">userId</a></dt>
 <dd><p>Builds a trial with set Id message and user Id input.</p>
@@ -52,6 +61,20 @@ Builds a trial with a fixation dot and optional photodiode box.
 | options.jitter | <code>number</code> | jitter range (0-jitter) to add from to the trial duration (default: 50) |
 | options.taskCode | <code>number</code> | Task code to be saved into data log (default: 1) |
 | options.numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1) |
+
+<a name="module_multiSurvey"></a>
+
+## multiSurvey
+Builds a multi choice/select survey trial.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>Object</code> |  |
+| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. (default: 'survey_multi_choice') |
+| options.preamble | <code>string</code> | HTML formatted string to display at the top of the page above all the questions. (default: empty string) |
+| options.prompts | <code>string</code> \| <code>Array</code> | The question prompts, this can be a string (one question) or an Array of strings (multiple questions) (default: "") |
+| options.ansChoices | <code>Object</code> | Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {}) |
 
 <a name="module_showImage"></a>
 
@@ -98,6 +121,28 @@ Builds a trial with a onscreen message, optional buttons and optional photodiode
 | options.taskCode | <code>number</code> | Task code to be saved into data log (default: 1) |
 | options.numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1) |
 | options.buttons | <code>Array</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. Only to be specified if the options.responseType is html_button_response (default: ["OK"], if options.responseType === html_button_response, otherwise ignored) |
+
+<a name="module_slider"></a>
+
+## slider
+Builds a trial with a onscreen message and allows the subject to respond by dragging a slider.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| message | <code>string</code> | The string to be displayed, this can be formatted as an HTML string. (default: empty string) |
+
+<a name="module_survey"></a>
+
+## survey
+Builds a trial with a question and with free response text fields. The subject types in answers.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>Object</code> |  |
+| options.stimulus | <code>string</code> | Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. (default: "") |
+| options.message | <code>string</code> | Onscreen message to be shown in the trial. (default: "") |
 
 <a name="module_userId"></a>
 
