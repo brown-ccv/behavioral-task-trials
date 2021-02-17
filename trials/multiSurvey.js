@@ -4,7 +4,7 @@
  * @module
  * @param {Object} options
  * @param {string} options.responseType - This tells jsPsych which plugin file to use to run the trial. (default: 'survey_multi_choice')
- * @param {string} options.preamble - HTML formatted string to display at the top of the page above all the questions. (default: empty string)
+ * @param {string} options.preamble - HTML formatted string to display at the top of the page above all the questions. (default: "")
  * @param {string|Array} options.prompts - The question prompts, this can be a string (one question) or an Array of strings (multiple questions) (default: "")
  * @param {Object} options.ansChoices - Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {})
  */
