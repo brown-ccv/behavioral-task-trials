@@ -73,7 +73,7 @@ Builds a multi choice/select survey trial.
 | options | <code>Object</code> |  |
 | options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. (default: 'survey_multi_choice') |
 | options.preamble | <code>string</code> | HTML formatted string to display at the top of the page above all the questions. (default: "") |
-| options.prompts | <code>string</code> \| <code>Array</code> | The question prompts, this can be a string (one question) or an Array of strings (multiple questions) (default: "") |
+| options.prompts | <code>Array</code> | The question prompts, an Array of strings (default: []) |
 | options.ansChoices | <code>Object</code> | Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {}) |
 
 <a name="module_showImage"></a>
