@@ -72,7 +72,7 @@ Builds a multi choice/select survey trial.
 | --- | --- | --- |
 | options | <code>Object</code> |  |
 | options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. (default: 'survey_multi_choice') |
-| options.preamble | <code>string</code> | HTML formatted string to display at the top of the page above all the questions. (default: empty string) |
+| options.preamble | <code>string</code> | HTML formatted string to display at the top of the page above all the questions. (default: "") |
 | options.prompts | <code>string</code> \| <code>Array</code> | The question prompts, this can be a string (one question) or an Array of strings (multiple questions) (default: "") |
 | options.ansChoices | <code>Object</code> | Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {}) |
 
@@ -141,6 +141,7 @@ Builds a trial with a question and with free response text fields. The subject t
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>Object</code> |  |
+| options.preamble | <code>string</code> | HTML formatted string to display at the top of the page above all the questions. (default: "") |
 | options.stimulus | <code>string</code> | Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. (default: "") |
 | options.message | <code>string</code> | Onscreen message to be shown in the trial. (default: "") |
 
