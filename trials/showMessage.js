@@ -1,3 +1,4 @@
+const htmlKeyboardResponse = require("@jspsych/plugin-html-keyboard-response");
 const {
   photodiodeGhostBox,
   pdSpotEncode,
@@ -28,7 +29,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
 
 module.exports = function (config, options) {
   const defaults = {
-    responseType: "html_keyboard_response",
+    responseType: htmlKeyboardResponse,
     duration: options.responseType == "html_button_response" ? null : 1000,
     stimulus: "",
     message: "",

@@ -1,6 +1,5 @@
 const fixation = require("../trials/fixation.js");
 const { init } = require("../app.js");
-const jsPsych = require("jspsych-react");
 
 describe("Fixation trial", () => {
   it("fixation without photodiode box", () => {

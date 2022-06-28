@@ -1,6 +1,9 @@
 const userId = require("../trials/userId.js");
 const { init } = require("../app.js");
-const jsPsych = require("jspsych-react");
+const { initJsPsych } = require('jspsych')
+
+
+const jsPsych = initJsPsych();
 
 describe("userId trial", () => {
   it("check for set ID message", () => {

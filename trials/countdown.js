@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const htmlKeyboardResponse = require("@jspsych/plugin-html-keyboard-response");
 
 /**
  * @description
@@ -28,7 +29,7 @@ module.exports = function (options) {
   });
 
   return {
-    type: "html_keyboard_response",
+    type: htmlKeyboardResponse,
     stimulus: stimulusOrMessage,
     trial_duration: duration,
     response_ends_trial: false,

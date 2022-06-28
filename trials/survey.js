@@ -1,3 +1,4 @@
+const surveyText = require("@jspsych/plugin-survey-text");
 const { baseStimulus } = require("../lib/markup/stimuli");
 
 /**
@@ -22,7 +23,7 @@ module.exports = function (options) {
     message !== "" ? baseStimulus(`<h1>${message}</h1>`, true) : stimulus;
 
   return {
-    type: "survey_text",
+    type: surveyText,
     preamble: preamble,
     questions: [{ prompt: stimulusOrMessage, required: true }],
     on_finish: (data) => {

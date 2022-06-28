@@ -1,3 +1,4 @@
+const imageKeyboardResponse = require("@jspsych/plugin-image-keyboard-response");
 const {
   photodiodeGhostBox,
   pdSpotEncode,
@@ -44,7 +45,7 @@ module.exports = function (config, image, options) {
   } = { ...defaults, ...options };
 
   return {
-    type: "image_keyboard_response",
+    type: imageKeyboardResponse,
     stimulus: image,
     prompt: config.USE_PHOTODIODE ? photodiodeGhostBox() : "",
     response_ends_trial: false,

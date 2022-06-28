@@ -4,10 +4,11 @@
  * @module
  * @param {string} message - The string to be displayed, this can be formatted as an HTML string. (default: empty string)
  */
+ const htmlSliderResponse = require("@jspsych/plugin-html-slider-response");
 
 module.exports = function (message = "") {
   return {
-    type: "html_slider_response",
+    type: htmlSliderResponse,
     require_movement: true,
     stimulus: message,
     on_finish: (data) => {

@@ -8,10 +8,11 @@
  * @param {Array} options.prompts - The question prompts, an Array of strings (default: [])
  * @param {Object} options.ansChoices - Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {})
  */
+ const surveyMultiChoice = require("@jspsych/plugin-survey-multi-choice");
 
 module.exports = function (options) {
   const defaults = {
-    responseType: "survey_multi_choice",
+    responseType: surveyMultiChoice,
     preamble: "",
     prompts: [],
     ansChoices: {},

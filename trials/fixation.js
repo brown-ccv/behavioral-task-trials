@@ -1,3 +1,4 @@
+const htmlKeyboardResponse = require("@jspsych/plugin-html-keyboard-response");
 const {
   pdSpotEncode,
   photodiodeGhostBox,
@@ -38,7 +39,7 @@ module.exports = function (config, options) {
   if (config.USE_PHOTODIODE) stimulus += photodiodeGhostBox();
 
   return {
-    type: "html_keyboard_response",
+    type: htmlKeyboardResponse,
     stimulus: stimulus,
     response_ends_trial: false,
     trial_duration: jitterx(duration, jitter),

@@ -1,3 +1,5 @@
+const htmlKeyboardResponse = require("@jspsych/plugin-html-keyboard-response");
+const surveyText = require("@jspsych/plugin-survey-text");
 const { baseStimulus } = require("../lib/markup/stimuli");
 
 /**
@@ -39,7 +41,7 @@ module.exports = function (jsPsych, config, options) {
 
   if (config.USE_MTURK) {
     return {
-      type: "html_keyboard_response",
+      type: htmlKeyboardResponse,
       stimulus: stimulusOrMessage,
       response_ends_trial: false,
       trial_duration: duration,
@@ -51,7 +53,7 @@ module.exports = function (jsPsych, config, options) {
     };
   } else {
     return {
-      type: "survey_text",
+      type: surveyText,
       questions: [
         {
           prompt: stimulusOrMessage,
