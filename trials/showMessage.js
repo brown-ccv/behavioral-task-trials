@@ -1,10 +1,10 @@
-const htmlKeyboardResponse = require("@jspsych/plugin-html-keyboard-response");
-const htmlButtonResponse = require("@jspsych/plugin-html-button-response");
-const {
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response"
+import htmlButtonResponse from "@jspsych/plugin-html-button-response"
+import {
   photodiodeGhostBox,
   pdSpotEncode,
-} = require("../lib/markup/photodiode");
-const { baseStimulus } = require("../lib/markup/stimuli");
+} from "../lib/markup/photodiode"
+import { baseStimulus } from "../lib/markup/stimuli"
 
 /**
  * @description
@@ -27,18 +27,17 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {number} options.numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1)
  * @param {Array} options.buttons - This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of "ALL_KEYS" means that all keys will be accepted as valid responses. Specifying "NO_KEYS" will mean that no responses are allowed. Only to be specified if the options.responseType is htmlButtonResponse from "@jspsych/plugin-html-button-response" (default: ["OK"], if options.responseType === htmlButtonResponse, otherwise ignored)
  */
-
-module.exports = function (config, options) {
+export function showMessage(config, options) {
   const defaults = {
     responseType: htmlKeyboardResponse,
-    duration: options.responseType === htmlButtonResponse ? null : 1000,
+    duration: options.responseType == htmlButtonResponse ? null : 1000,
     stimulus: "",
     message: "",
     onstart: false,
     responseEndsTrial: false,
     taskCode: 1,
     numBlinks: 1,
-    buttons: options.responseType === htmlKeyboardResponse ? null : ["OK"],
+    buttons: options.responseType == htmlKeyboardResponse ? null : ["OK"],
   };
   const {
     responseType,

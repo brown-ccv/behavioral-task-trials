@@ -1,4 +1,4 @@
-const slider = require("../trials/slider.js");
+import { slider } from "../trials/slider.js"
 
 describe("slider trial", () => {
   it("slider with require movement", () => {

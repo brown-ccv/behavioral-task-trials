@@ -1,12 +1,12 @@
+import htmlSliderResponse from "@jspsych/plugin-html-slider-response"
+
 /**
  * @description
  * Builds a trial with a onscreen message and allows the subject to respond by dragging a slider.
  * @module
  * @param {string} message - The string to be displayed, this can be formatted as an HTML string. (default: empty string)
  */
- const htmlSliderResponse = require("@jspsych/plugin-html-slider-response");
-
-module.exports = function (message = "") {
+export function slider(message = "") {
   return {
     type: htmlSliderResponse,
     require_movement: true,

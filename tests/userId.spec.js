@@ -1,8 +1,8 @@
-const userId = require("../trials/userId.js");
-const { init } = require("../app.js");
-const { initJsPsych } = require('jspsych')
+import { userId } from "../trials/userId.js"
+import { init } from "../app.js"
+import { initJsPsych } from "jspsych"
 
-
+// In jspsych 7, we explicitly instantiate our own jsPsych instead of importing the global instance.
 const jsPsych = initJsPsych();
 
 describe("userId trial", () => {

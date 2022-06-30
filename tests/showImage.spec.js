@@ -1,5 +1,5 @@
-const showImage = require("../trials/showImage.js");
-const { init } = require("../app.js");
+import { showImage } from "../trials/showImage.js"
+import { init } from "../app.js"
 
 describe("showImage trial", () => {
   it("showImage without photodiode box", () => {

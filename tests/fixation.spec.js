@@ -1,5 +1,5 @@
-const fixation = require("../trials/fixation.js");
-const { init } = require("../app.js");
+import { fixation } from "../trials/fixation.js"
+import { init } from "../app.js"
 
 describe("Fixation trial", () => {
   it("fixation without photodiode box", () => {

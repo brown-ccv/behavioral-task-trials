@@ -1,4 +1,5 @@
-const surveyMultiChoice = require("@jspsych/plugin-survey-multi-choice");
+import surveyMultiChoice from "@jspsych/plugin-survey-multi-choice"
+
 /**
  * @description
  * Builds a multi choice/select survey trial.
@@ -9,8 +10,7 @@ const surveyMultiChoice = require("@jspsych/plugin-survey-multi-choice");
  * @param {Array} options.prompts - The question prompts, an Array of strings (default: [])
  * @param {Object} options.ansChoices - Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {})
  */
-
-module.exports = function (options) {
+export function multiSurvey(options) {
   const defaults = {
     responseType: surveyMultiChoice,
     preamble: "",
@@ -42,7 +42,7 @@ module.exports = function (options) {
       window.scrollTo(0, 0);
       data.prompt = prompts;
       data.ans_choices = [ansChoices];
-      data.answer = [{ answer: JSON.parse(data.responses) }];
+      data.answer = [{ answer: data.response }];
     },
   };
 };

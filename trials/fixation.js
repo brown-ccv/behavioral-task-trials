@@ -1,9 +1,9 @@
-const htmlKeyboardResponse = require("@jspsych/plugin-html-keyboard-response");
-const {
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response"
+import {
   pdSpotEncode,
   photodiodeGhostBox,
-} = require("../lib/markup/photodiode");
-const { jitterx } = require("../lib/utils");
+} from "../lib/markup/photodiode"
+import { jitterx } from "../lib/utils"
 
 /**
  * @description
@@ -21,8 +21,7 @@ const { jitterx } = require("../lib/utils");
  * @param {number} options.taskCode - Task code to be saved into data log (default: 1)
  * @param {number} options.numBlinks - Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1)
  */
-
-module.exports = function (config, options) {
+export function fixation(config, options) {
   const defaults = {
     duration: 1000,
     jitter: 50,

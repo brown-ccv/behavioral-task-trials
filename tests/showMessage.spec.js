@@ -1,7 +1,7 @@
-const htmlKeyboardResponse = require("@jspsych/plugin-html-keyboard-response");
-const htmlButtonResponse = require("@jspsych/plugin-html-button-response");
-const showMessage = require("../trials/showMessage.js");
-const { init } = require("../app.js");
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response"
+import htmlButtonResponse from "@jspsych/plugin-html-button-response"
+import { showMessage } from "../trials/showMessage.js"
+import { init } from "../app.js"
 
 describe("showMessage trial", () => {
   it("showMessage without photodiode box", () => {
