@@ -1,5 +1,5 @@
-import { countdown } from "../trials/countdown.js"
-import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response"
+import { countdown } from "../trials/countdown.js";
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response";
 
 describe("Countdown trial", () => {
   it("counts to 10 with a message countdown", () => {

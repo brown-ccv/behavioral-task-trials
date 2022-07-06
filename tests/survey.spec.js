@@ -1,4 +1,4 @@
-import { survey } from "../trials/survey.js"
+import { survey } from "../trials/survey.js";
 
 describe("survey trial", () => {
   it("survey with require movement", () => {

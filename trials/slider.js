@@ -1,4 +1,4 @@
-import htmlSliderResponse from "@jspsych/plugin-html-slider-response"
+import htmlSliderResponse from "@jspsych/plugin-html-slider-response";
 
 /**
  * @description

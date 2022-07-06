@@ -1,5 +1,5 @@
-import surveyText from "@jspsych/plugin-survey-text"
-import { baseStimulus } from "../lib/markup/stimuli"
+import surveyText from "@jspsych/plugin-survey-text";
+import { baseStimulus } from "../lib/markup/stimuli";
 
 /**
  * @description

@@ -1,10 +1,10 @@
-import imageKeyboardResponse from "@jspsych/plugin-image-keyboard-response"
+import imageKeyboardResponse from "@jspsych/plugin-image-keyboard-response";
 import {
   photodiodeGhostBox,
   pdSpotEncode,
-} from "../lib/markup/photodiode"
-import $ from "jquery"
-import { jitterx } from "../lib/utils"
+} from "../lib/markup/photodiode";
+import $ from "jquery";
+import { jitterx } from "../lib/utils";
 
 /**
  * @description

@@ -1,10 +1,10 @@
-import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response"
-import htmlButtonResponse from "@jspsych/plugin-html-button-response"
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response";
+import htmlButtonResponse from "@jspsych/plugin-html-button-response";
 import {
   photodiodeGhostBox,
   pdSpotEncode,
-} from "../lib/markup/photodiode"
-import { baseStimulus } from "../lib/markup/stimuli"
+} from "../lib/markup/photodiode";
+import { baseStimulus } from "../lib/markup/stimuli";
 
 /**
  * @description

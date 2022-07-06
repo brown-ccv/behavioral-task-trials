@@ -1,6 +1,6 @@
-import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response"
-import surveyText from "@jspsych/plugin-survey-text"
-import { baseStimulus } from "../lib/markup/stimuli"
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response";
+import surveyText from "@jspsych/plugin-survey-text";
+import { baseStimulus } from "../lib/markup/stimuli";
 
 /**
  * @description

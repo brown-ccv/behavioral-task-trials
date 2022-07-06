@@ -1,4 +1,4 @@
-import surveyMultiChoice from "@jspsych/plugin-survey-multi-choice"
+import surveyMultiChoice from "@jspsych/plugin-survey-multi-choice";
 
 /**
  * @description

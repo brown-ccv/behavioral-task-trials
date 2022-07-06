@@ -1,9 +1,9 @@
-import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response"
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response";
 import {
   pdSpotEncode,
   photodiodeGhostBox,
-} from "../lib/markup/photodiode"
-import { jitterx } from "../lib/utils"
+} from "../lib/markup/photodiode";
+import { jitterx } from "../lib/utils";
 
 /**
  * @description
