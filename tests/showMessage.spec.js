@@ -1,6 +1,7 @@
-const showMessage = require("../trials/showMessage.js");
-const { init } = require("../app.js");
-const jsPsych = require("jspsych-react");
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response";
+import htmlButtonResponse from "@jspsych/plugin-html-button-response";
+import { showMessage } from "../trials/showMessage.js";
+import { init } from "../app.js";
 
 describe("showMessage trial", () => {
   it("showMessage without photodiode box", () => {
@@ -8,7 +9,7 @@ describe("showMessage trial", () => {
     let data = { code: null };
     const message = "Experiment Start";
     const result = showMessage(config, {
-      responseType: "html_keyboard_response",
+      responseType: htmlKeyboardResponse,
       duration: 100,
       message: message,
     });
@@ -23,7 +24,7 @@ describe("showMessage trial", () => {
     const message = "Experiment Start";
     let data = { code: null };
     const result = showMessage(config, {
-      responseType: "html_keyboard_response",
+      responseType: htmlKeyboardResponse,
       duration: 100,
       message: message,
       taskCode: 10,
@@ -35,22 +36,23 @@ describe("showMessage trial", () => {
     expect(result.on_finish(data)).toEqual(10);
   });
 
-  it("showMessage with jsPsych.NO_KEYS", () => {
+  // jspsych 7 uses strings like "ALL_KEYS" and "NO_KEYS" to allow and prevent input.
+  it("showMessage with NO_KEYS", () => {
     const config = init({ USE_PHOTODIODE: false });
     const result = showMessage(config, {
-      responseType: "html_button_response",
+      responseType: htmlButtonResponse,
       duration: 100,
       message: "",
-      buttons: jsPsych.NO_KEYS,
+      buttons: "NO_KEYS",
     });
-    expect(result.choices).toEqual(undefined);
+    expect(result.choices).toEqual("NO_KEYS");
   });
 
   it("showMessage with choices", () => {
     const config = init({ USE_PHOTODIODE: false });
     const choices = ["p", "q"];
     const result = showMessage(config, {
-      responseType: "html_button_response",
+      responseType: htmlButtonResponse,
       duration: 100,
       message: "",
       buttons: choices,
@@ -63,7 +65,7 @@ describe("showMessage trial", () => {
     const message = "Experiment Start";
     let trial = { stimulus: null };
     const result = showMessage(config, {
-      responseType: "html_button_response",
+      responseType: htmlButtonResponse,
       duration: 100,
       message: message,
       onstart: true,
@@ -77,7 +79,7 @@ describe("showMessage trial", () => {
     const config = init({ USE_PHOTODIODE: false });
     const stimulus = `<h3>Experiment Start</h3>`;
     const result = showMessage(config, {
-      responseType: "html_keyboard_response",
+      responseType: htmlKeyboardResponse,
       duration: 100,
       stimulus: stimulus,
       taskCode: 10,

@@ -1,4 +1,4 @@
-const multiSurvey = require("../trials/multiSurvey.js");
+import { multiSurvey } from "../trials/multiSurvey.js";
 
 describe("multiSurvey trial", () => {
   it(" with same ans choices for all questions", () => {

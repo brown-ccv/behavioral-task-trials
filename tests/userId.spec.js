@@ -1,6 +1,9 @@
-const userId = require("../trials/userId.js");
-const { init } = require("../app.js");
-const jsPsych = require("jspsych-react");
+import { userId } from "../trials/userId.js";
+import { init } from "../app.js";
+import { initJsPsych } from "jspsych";
+
+// In jspsych 7, we explicitly instantiate our own jsPsych instead of importing the global instance.
+const jsPsych = initJsPsych();
 
 describe("userId trial", () => {
   it("check for set ID message", () => {

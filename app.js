@@ -1,18 +1,27 @@
-const _ = require('lodash')
+import { extend } from 'lodash';
+import { countdown } from './trials/countdown';
+import { showMessage } from './trials/showMessage';
+import { fixation } from './trials/fixation';
+import { userId } from './trials/userId';
+import { showImage } from './trials/showImage';
+import { slider } from './trials/slider';
+import { survey } from './trials/survey';
+import { multiSurvey } from './trials/multiSurvey';
 
-const defaultconfig = { USE_PHOTODIODE: false,  USE_EEG: false, USE_ELECTRON: true, USE_MTURK: false}
+const defaultconfig = { USE_PHOTODIODE: false, USE_EEG: false, USE_ELECTRON: true, USE_MTURK: false }
 
+function init(_config) {
+  return extend(defaultconfig, _config)
+}
 
-module.exports = { 
-  init: function(_config){
-      return _.extend(defaultconfig,_config)
-  },
-  countdown: require('./trials/countdown.js'),
-  showMessage: require('./trials/showMessage.js'),
-  fixation: require('./trials/fixation.js'),
-  userId: require('./trials/userId.js'),
-  showImage: require('./trials/showImage.js'),
-  slider: require('./trials/slider.js'),
-  survey: require('./trials/survey.js'),
-  multiSurvey: require('./trials/multiSurvey.js')
+export {
+  init,
+  countdown,
+  showMessage,
+  fixation,
+  userId,
+  showImage,
+  slider,
+  survey,
+  multiSurvey
 };

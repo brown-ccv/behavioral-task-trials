@@ -1,4 +1,5 @@
-const { baseStimulus } = require("../lib/markup/stimuli");
+import surveyText from "@jspsych/plugin-survey-text";
+import { baseStimulus } from "../lib/markup/stimuli";
 
 /**
  * @description
@@ -10,7 +11,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {string} options.message - Onscreen message to be shown in the trial. (default: "")
  */
 
-module.exports = function (options) {
+export function survey(options) {
   const defaults = {
     preamble: "",
     stimulus: "",
@@ -22,13 +23,13 @@ module.exports = function (options) {
     message !== "" ? baseStimulus(`<h1>${message}</h1>`, true) : stimulus;
 
   return {
-    type: "survey_text",
+    type: surveyText,
     preamble: preamble,
     questions: [{ prompt: stimulusOrMessage, required: true }],
     on_finish: (data) => {
       window.scrollTo(0, 0);
       data.prompt = [stimulusOrMessage];
-      data.answer = JSON.parse(data.responses)["Q0"];
+      data.answer = data.response["Q0"];
     },
   };
 };

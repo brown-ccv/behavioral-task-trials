@@ -71,7 +71,7 @@ Builds a multi choice/select survey trial.
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>Object</code> |  |
-| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. (default: 'survey_multi_choice') |
+| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. (default: surveyMultiChoice from "@jspsych/plugin-survey-multi-choice") |
 | options.preamble | <code>string</code> | HTML formatted string to display at the top of the page above all the questions. (default: "") |
 | options.prompts | <code>Array</code> | The question prompts, an Array of strings (default: []) |
 | options.ansChoices | <code>Object</code> | Object consisting of the key as the answer choice name and value as the array of answer choices. (default: {}) |
@@ -112,15 +112,15 @@ Builds a trial with a onscreen message, optional buttons and optional photodiode
 | config.USE_ELECTRON | <code>boolean</code> | USE_ELECTRON flag |
 | config.USE_MTURK | <code>boolean</code> | USE_MTURK flag |
 | options | <code>Object</code> |  |
-| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. (default: 'html_keyboard_response') |
-| options.duration | <code>number</code> | trial duration in milliseconds, only to be specified if the options.responseType is html_keyboard_response. (default: 1000, if options.responseType ===  html_keyboard_response, otherwise ignored) |
+| options.responseType | <code>string</code> | This tells jsPsych which plugin file to use to run the trial. (default: htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response") |
+| options.duration | <code>number</code> | trial duration in milliseconds, only to be specified if the options.responseType is htmlKeyboardResponse. (default: 1000, if options.responseType is htmlKeyboardResponse, otherwise ignored) |
 | options.stimulus | <code>string</code> | Onscreen stimulus in HTML to be shown in the trial, if not set default text is empty. If the stimulus is not provided, message should be provided as a string. (default: "") |
 | options.message | <code>string</code> | Onscreen message to be shown in the trial. (default: "") |
 | options.onstart | <code>boolean</code> | True if the message is to be display on start of the trial. False if the message needs to be in the stimulus.(default: false) |
 | options.responseEndsTrial | <code>boolean</code> | True if the trial ends on response,false if the trial waits for the duration. (default: false) |
 | options.taskCode | <code>number</code> | Task code to be saved into data log (default: 1) |
 | options.numBlinks | <code>number</code> | Number of times the pulse needs to be repeated for photodiode box, when USE_PHOTODIODE is set true. (default: 1) |
-| options.buttons | <code>Array</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of jsPsych.ALL_KEYS means that all keys will be accepted as valid responses. Specifying jsPsych.NO_KEYS will mean that no responses are allowed. Only to be specified if the options.responseType is html_button_response (default: ["OK"], if options.responseType === html_button_response, otherwise ignored) |
+| options.buttons | <code>Array</code> | This array contains the keys that the subject is allowed to press in order to respond to the stimulus. Keys can be specified as their numeric key code or as characters (e.g., 'a', 'q'). The default value of "ALL_KEYS" means that all keys will be accepted as valid responses. Specifying "NO_KEYS" will mean that no responses are allowed. Only to be specified if the options.responseType is htmlButtonResponse from "@jspsych/plugin-html-button-response" (default: ["OK"], if options.responseType is htmlButtonResponse, otherwise ignored) |
 
 <a name="module_slider"></a>
 

@@ -1,4 +1,6 @@
-const { baseStimulus } = require("../lib/markup/stimuli");
+import htmlKeyboardResponse from "@jspsych/plugin-html-keyboard-response";
+import surveyText from "@jspsych/plugin-survey-text";
+import { baseStimulus } from "../lib/markup/stimuli";
 
 /**
  * @description
@@ -18,7 +20,7 @@ const { baseStimulus } = require("../lib/markup/stimuli");
  * @param {string} options.defaultId - The user id to show when requesting a user ID, when config.USE_MTURK is set to false.(default: "")
  */
 
-module.exports = function (jsPsych, config, options) {
+export function userId(jsPsych, config, options) {
   const defaults = {
     duration: 1000,
     stimulus: "",
@@ -39,7 +41,7 @@ module.exports = function (jsPsych, config, options) {
 
   if (config.USE_MTURK) {
     return {
-      type: "html_keyboard_response",
+      type: htmlKeyboardResponse,
       stimulus: stimulusOrMessage,
       response_ends_trial: false,
       trial_duration: duration,
@@ -51,7 +53,7 @@ module.exports = function (jsPsych, config, options) {
     };
   } else {
     return {
-      type: "survey_text",
+      type: surveyText,
       questions: [
         {
           prompt: stimulusOrMessage,
@@ -59,7 +61,7 @@ module.exports = function (jsPsych, config, options) {
         },
       ],
       on_finish: (data) => {
-        const patientId = JSON.parse(data.responses)["Q0"];
+        const patientId = data.response["Q0"];
         jsPsych.data.addProperties({
           patient_id: patientId,
           timestamp: Date.now(),
