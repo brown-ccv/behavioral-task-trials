@@ -45,7 +45,7 @@
     "@jspsych/plugin-image-keyboard-response": "^1.1.1",
     "@jspsych/plugin-survey-multi-choice": "^1.1.1",
     "@jspsych/plugin-survey-text": "^1.1.1",
-    "semantic-release": "^17.2.3"
+    "semantic-release": "^19.0.3"
   },
   "devDependencies": {
     "jest": "^26.2.2",
